@@ -1,0 +1,40 @@
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>Hello</servlet-name>
+    <servlet-class>HelloServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Hello</servlet-name>
+    <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ProcessStudent</servlet-name>
+    <servlet-class>ProcessStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProcessStudent</servlet-name>
+    <url-pattern>/process-student</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ReadStudent</servlet-name>
+    <servlet-class>ReadStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReadStudent</servlet-name>
+    <url-pattern>/read-student</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ActualizareStudent</servlet-name>
+    <servlet-class>ActualizareStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ActualizareStudent</servlet-name>
+    <url-pattern>/actualizare-student</url-pattern>
+  </servlet-mapping>
+
+
+</web-app>

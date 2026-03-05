@@ -1,0 +1,11 @@
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>Students</servlet-name>
+    <servlet-class>StudentsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Students</servlet-name>
+    <url-pattern>/list-students</url-pattern>
+  </servlet-mapping>
+</web-app>
