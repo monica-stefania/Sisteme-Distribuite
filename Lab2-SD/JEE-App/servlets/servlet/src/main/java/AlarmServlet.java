@@ -50,7 +50,7 @@ public class AlarmServlet extends HttpServlet{
         response.getWriter().println("<h2>Monitorizarea a pornit cu succes!</h2>");
         response.getWriter().println("<p>S-au setat limitele: " + minVarsta + " - " + maxVarsta + " ani.</p>");
 
-        response.getWriter().println("<br /><a href='./alarm-db'>Verifica alarmele aici</a>");
+        response.getWriter().println("<br /><a href='./alarm-db'>Verifica alarme/a>");
         response.getWriter().println("<br /><br /><a href='./'>Inapoi la meniul principal</a>");
         response.getWriter().println("</body></html>");
     }

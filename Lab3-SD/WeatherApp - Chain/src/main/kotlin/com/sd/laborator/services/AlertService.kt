@@ -16,10 +16,10 @@ class AlertService : AlertInterface, ChainInterface {
     override fun getAlertTemperature(weatherForecastData: WeatherForecastData): String {
         if (weatherForecastData.minTemp < min_temp)
             return "Temperatura locatiei cu coordonatele ${weatherForecastData.latitude}, ${weatherForecastData.longitude}\n" +
-                    "este de ${weatherForecastData.minTemp} este sub temperatura minima $min_temp \n"
+                    "este de ${weatherForecastData.minTemp} grade este sub temperatura minima $min_temp grade\n"
         else if (weatherForecastData.maxTemp > max_temp)
             return "Temperatura locatiei cu coordonatele ${weatherForecastData.latitude}, ${weatherForecastData.longitude}\n " +
-                    "este de ${weatherForecastData.maxTemp} este sub temperatura maxima $max_temp \n"
+                    "este de ${weatherForecastData.maxTemp} grade este peste temperatura maxima $max_temp grade\n"
         return ""
     }
 

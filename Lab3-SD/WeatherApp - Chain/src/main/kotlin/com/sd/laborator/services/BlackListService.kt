@@ -12,21 +12,15 @@ import java.net.URL
 @Service
 class BlackListService: BlackListInterface, ChainInterface{
     private lateinit var next : ChainInterface
-    override fun isLocationAllowed(): Boolean
+    override fun isLocationAllowed(location: String): Boolean
     {
-        //aflare lcatie reala a nodului de calcul folosind IP-ul
-        val myAddressURL = URL("http://ip-api.com/json/")
-        val addressResponse = myAddressURL.readText()
-        val addressRootObject = JSONObject(addressResponse)
-        val myCity = addressRootObject.getString("city")
-
         val list = File("src/main/kotlin/com/sd/laborator/blacklist/blacklist.json").readText()
         val listRootObject = JSONObject(list)
         val blackList = listRootObject.getJSONArray("blacklist")
 
         for (i in 0 until blackList.length()) {
             val item = blackList.getString(i)
-            if(myCity.equals(item, ignoreCase = true)) {
+            if(location.equals(item, ignoreCase = true)) {
                 return false
             }
         }
@@ -38,10 +32,10 @@ class BlackListService: BlackListInterface, ChainInterface{
     }
 
     override fun process(context: WeatherContext): String{
-        val verifyLocation = isLocationAllowed()
+        val verifyLocation = isLocationAllowed(context.locationName)
 
         if(!verifyLocation)
-            return "Nu aveti permisiunea sa cautati date despre vreme!"
+            return "Nu sunt date disponibile pentru aceasta locatie {$context.locationName}!"
 
         return next.process(context)
     }
