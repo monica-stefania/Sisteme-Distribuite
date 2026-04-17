@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="AuctioneerMicroservice:jar" />
+      <artifact name="BidderMicroservice:jar" />
+      <artifact name="BiddingProcessorMicroservice:jar" />
+      <artifact name="MessageLibrary:jar" />
+      <artifact name="MessageProcessorMicroservice:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="178d4783-2744-45e4-8c88-1eb209e6ac05" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Lab4-SD/Family-Expense-Tracker" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab4-SD/Family-Expense-Tracker" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/CacheMicroservice/src/main/kotlin/com/laborator/sd/CacheMicroservice/persistence/repositories/CachingRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/CacheMicroservice/src/main/kotlin/com/laborator/sd/CacheMicroservice/persistence/repositories/CachingRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/src/main/kotlin/com/sd/laborator/business/services/LibraryDAOService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/src/main/kotlin/com/sd/laborator/business/services/LibraryDAOService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/src/main/kotlin/com/sd/laborator/presentation/controllers/LibraryPrinterController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/src/main/kotlin/com/sd/laborator/presentation/controllers/LibraryPrinterController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/target/classes/com/sd/laborator/business/services/LibraryDAOService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/target/classes/com/sd/laborator/business/services/LibraryDAOService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/target/classes/com/sd/laborator/persistence/repositories/LibraryRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/target/classes/com/sd/laborator/persistence/repositories/LibraryRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/target/classes/com/sd/laborator/presentation/controllers/LibraryPrinterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/target/classes/com/sd/laborator/presentation/controllers/LibraryPrinterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryAppGUI/library_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryAppGUI/library_manager.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Data Class" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="20uELUovc95BdTMD7LKFfgZAfeH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Docker.src/Dockerfile.executor": "Run",
+    "Kotlin.BidderMicroserviceKt.executor": "Run",
+    "Kotlin.ExecutionLoggerKt.executor": "Run",
+    "Kotlin.MessageProcessorMicroserviceKt.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/moni/Documents/Okazii",
+    "onboarding.tips.debug.path": "/home/moni/Documents/Sisteme-Distribuite/Lab7-SD/Okazii/HeartBeatMicroservice/src/Main.kt",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/MessageProcessorMicroservice/src" />
+      <recent name="$PROJECT_DIR$/MessageLibrary/src" />
+      <recent name="$PROJECT_DIR$/BiddingProcessorMicroservice/src" />
+      <recent name="$PROJECT_DIR$/BidderMicroservice/src" />
+      <recent name="$PROJECT_DIR$/AuctioneerMicroservice/src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Docker.src/Dockerfile">
+    <configuration name="BidderMicroserviceKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="BidderMicroserviceKt" />
+      <module name="BidderMicroservice" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExecutionLoggerKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ExecutionLoggerKt" />
+      <module name="MessageLibrary" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MessageProcessorMicroserviceKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MessageProcessorMicroserviceKt" />
+      <module name="MessageProcessorMicroservice" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="src/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="contextFolderPath" value="$PROJECT_DIR$" />
+          <option name="sourceFilePath" value="AuctioneerMicroservice/src/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.src/Dockerfile" />
+        <item itemvalue="Kotlin.ExecutionLoggerKt" />
+        <item itemvalue="Kotlin.MessageProcessorMicroserviceKt" />
+        <item itemvalue="Kotlin.BidderMicroserviceKt" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="178d4783-2744-45e4-8c88-1eb209e6ac05" name="Changes" comment="" />
+      <created>1636886021697</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1636886021697</updated>
+    </task>
+    <servers />
+  </component>
+</project>

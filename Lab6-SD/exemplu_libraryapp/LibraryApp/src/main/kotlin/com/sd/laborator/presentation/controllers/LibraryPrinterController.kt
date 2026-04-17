@@ -91,16 +91,16 @@ class LibraryPrinterController {
             else -> "format=$format"
         }
         sendQuery(query)
-        // Asteapta rezultatul max 5 secunde
+        // asteapta rezulattul maxim 5 secunde
         return _resultQueue.poll(5, java.util.concurrent.TimeUnit.SECONDS)
-            ?: "Timeout asteptand CacheMS"
+            ?: "Se incarca rezultatul..."
     }
 
     @RabbitListener(queues = ["\${libraryapp.rabbitmq.queue.file}"])
     fun fetchFile(message: String)
     {
         //primeste rezultatul
-        println("Fisier primit de la CacheMS: $message")
+        println("Fisier primit de la Cache: $message")
         _resultQueue.offer(message)
     }
 
@@ -116,6 +116,11 @@ class LibraryPrinterController {
             "title" -> _libraryDAOService.findAllByTitle(typeSearch[1])
             "publisher" -> _libraryDAOService.findAllByPublisher(typeSearch[1])
             else -> _libraryDAOService.getBooks()
+        }
+
+        if (books.isEmpty()) {
+            sendState("$message~Nu au fost gasite rezultate pentru: ${typeSearch[1]}")
+            return
         }
 
         val result = when (format[1]){

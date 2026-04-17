@@ -36,12 +36,19 @@ class LibraryApp(QWidget):
             else:
                 url = '/print?format=raw'
         else:
-            if self.author_rb.isChecked():
-                url = '/find?author={}'.format(search_string.replace(' ', '%20'))
-            elif self.title_rb.isChecked():
-                url = '/find?title={}'.format(search_string.replace(' ', '%20'))
+            if self.json_rb.isChecked():
+                format = 'json'
+            elif self.html_rb.isChecked():
+                format = 'html'
             else:
-                url = '/find?publisher={}'.format(search_string.replace(' ', '%20'))
+                format = 'raw'
+                
+            if self.author_rb.isChecked():
+                url = '/find-and-print?author={}&format={}'.format(search_string.replace(' ', '%20'), format)
+            elif self.title_rb.isChecked():
+                url = '/find-and-print?title={}&format={}'.format(search_string.replace(' ', '%20'), format)
+            else:
+                url = '/find-and-print?publisher={}&format={}'.format(search_string.replace(' ', '%20'), format)
         full_url = "http://localhost:8080" + url
         try:
             response = requests.get(full_url)

@@ -1,0 +1,211 @@
+[14-04-2026 08:34:57] [heartbeat.log] HEARTBEAT|bidding-processor 
+[14-04-2026 08:34:57] [bidding_processor.log] START 
+[14-04-2026 08:34:58] [heartbeat.log] HEARTBEAT|message-processor 
+[14-04-2026 08:34:58] [message_processor.log] START 
+[14-04-2026 08:34:58] [heartbeat.log] HEARTBEAT|auctioneer 
+[14-04-2026 08:34:58] [auctioneer.log] START 
+[14-04-2026 08:34:58] [heartbeat.log] HEARTBEAT|bidder_0e84153cac0b 
+[14-04-2026 08:34:58] [bidder_4d4d45e3-ae2e-4ac0-a773-05f263b78f87.log] START 
+[14-04-2026 08:34:58] [bidder_4d4d45e3-ae2e-4ac0-a773-05f263b78f87.log] SEND_BID|1776155698707|/172.18.0.7:57664|Sebi Dumitrescu|0729588190|sebi-dumitrescu@gmail.com|licitez 7692 
+[14-04-2026 08:34:58] [bidder_4d4d45e3-ae2e-4ac0-a773-05f263b78f87.log] SEND_DUPLICATE_BID|1776155698707|/172.18.0.7:57664|Sebi Dumitrescu|0729588190|sebi-dumitrescu@gmail.com|licitez 7692 
+[14-04-2026 08:34:58] [bidder_4d4d45e3-ae2e-4ac0-a773-05f263b78f87.log] WAIT_RESULT 
+[14-04-2026 08:34:58] [auctioneer.log] OFFER|1776155698707|/172.18.0.7:57664|Sebi Dumitrescu|0729588190|sebi-dumitrescu@gmail.com|licitez 7692 
+[14-04-2026 08:34:58] [heartbeat.log] HEARTBEAT|bidder_44bdd11bd881 
+[14-04-2026 08:34:58] [bidder_849143d6-ab0d-44ed-9b41-c7d5de34e8a4.log] START 
+[14-04-2026 08:34:58] [bidder_849143d6-ab0d-44ed-9b41-c7d5de34e8a4.log] SEND_BID|1776155698894|/172.18.0.8:42054|Sofia Rusu|0740548579|sofia-rusu@gmail.com|licitez 3352 
+[14-04-2026 08:34:58] [auctioneer.log] OFFER|1776155698894|/172.18.0.8:42054|Sofia Rusu|0740548579|sofia-rusu@gmail.com|licitez 3352 
+[14-04-2026 08:34:58] [bidder_849143d6-ab0d-44ed-9b41-c7d5de34e8a4.log] WAIT_RESULT 
+[14-04-2026 08:34:58] [heartbeat.log] HEARTBEAT|bidder_8e56bd4a31d5 
+[14-04-2026 08:34:59] [bidder_3721993a-bf47-414d-9195-f955f1d256b2.log] START 
+[14-04-2026 08:34:59] [bidder_3721993a-bf47-414d-9195-f955f1d256b2.log] SEND_BID|1776155699064|/172.18.0.9:35930|Theo Rosu|0729097766|theo-rosu@gmail.com|licitez 3721 
+[14-04-2026 08:34:59] [auctioneer.log] OFFER|1776155699064|/172.18.0.9:35930|Theo Rosu|0729097766|theo-rosu@gmail.com|licitez 3721 
+[14-04-2026 08:34:59] [bidder_3721993a-bf47-414d-9195-f955f1d256b2.log] WAIT_RESULT 
+[14-04-2026 08:35:02] [heartbeat.log] HEARTBEAT|bidding-processor 
+[14-04-2026 08:35:03] [heartbeat.log] HEARTBEAT|message-processor 
+[14-04-2026 08:35:03] [heartbeat.log] HEARTBEAT|auctioneer 
+[14-04-2026 08:35:03] [heartbeat.log] HEARTBEAT|bidder_0e84153cac0b 
+[14-04-2026 08:35:03] [heartbeat.log] HEARTBEAT|bidder_44bdd11bd881 
+[14-04-2026 08:35:03] [heartbeat.log] HEARTBEAT|bidder_8e56bd4a31d5 
+[14-04-2026 08:35:07] [heartbeat.log] HEARTBEAT|bidding-processor 
+[14-04-2026 08:35:08] [heartbeat.log] HEARTBEAT|message-processor 
+[14-04-2026 08:35:08] [heartbeat.log] HEARTBEAT|auctioneer 
+[14-04-2026 08:35:08] [heartbeat.log] HEARTBEAT|bidder_0e84153cac0b 
+[14-04-2026 08:35:08] [heartbeat.log] HEARTBEAT|bidder_44bdd11bd881 
+[14-04-2026 08:35:08] [heartbeat.log] HEARTBEAT|bidder_8e56bd4a31d5 
+[14-04-2026 08:35:12] [heartbeat.log] HEARTBEAT|bidding-processor 
+[14-04-2026 08:35:13] [heartbeat.log] HEARTBEAT|message-processor 
+[14-04-2026 08:35:13] [heartbeat.log] HEARTBEAT|auctioneer 
+[14-04-2026 08:35:13] [heartbeat.log] HEARTBEAT|bidder_0e84153cac0b 
+[14-04-2026 08:35:13] [heartbeat.log] HEARTBEAT|bidder_44bdd11bd881 
+[14-04-2026 08:35:13] [heartbeat.log] HEARTBEAT|bidder_8e56bd4a31d5 
+[14-04-2026 08:35:14] [auctioneer.log] END_RECEIVED 
+[14-04-2026 08:35:14] [auctioneer.log] SEND|1776155698707|/172.18.0.7:57664|Sebi Dumitrescu|0729588190|sebi-dumitrescu@gmail.com|licitez 7692 
+[14-04-2026 08:35:14] [auctioneer.log] SEND|1776155698894|/172.18.0.8:42054|Sofia Rusu|0740548579|sofia-rusu@gmail.com|licitez 3352 
+[14-04-2026 08:35:14] [auctioneer.log] SEND|1776155699064|/172.18.0.9:35930|Theo Rosu|0729097766|theo-rosu@gmail.com|licitez 3721 
+[14-04-2026 08:35:14] [auctioneer.log] SEND_ALL|Au fost trimise toate ofertele 
+[14-04-2026 08:35:14] [message_processor.log] MESSAGE_RECEIVED|1776155698707|/172.18.0.7:57664|Sebi Dumitrescu|0729588190|sebi-dumitrescu@gmail.com|licitez 7692 
+[14-04-2026 08:35:14] [message_processor.log] MESSAGE_RECEIVED|1776155698894|/172.18.0.8:42054|Sofia Rusu|0740548579|sofia-rusu@gmail.com|licitez 3352 
+[14-04-2026 08:35:14] [message_processor.log] MESSAGE_RECEIVED|1776155699064|/172.18.0.9:35930|Theo Rosu|0729097766|theo-rosu@gmail.com|licitez 3721 
+[14-04-2026 08:35:14] [message_processor.log] MESSAGE_SORTED|1776155698707|/172.18.0.7:57664|Sebi Dumitrescu|0729588190|sebi-dumitrescu@gmail.com|licitez 7692,1776155698894|/172.18.0.8:42054|Sofia Rusu|0740548579|sofia-rusu@gmail.com|licitez 3352,1776155699064|/172.18.0.9:35930|Theo Rosu|0729097766|theo-rosu@gmail.com|licitez 3721 
+[14-04-2026 08:35:14] [message_processor.log] MESSAGE_SENT|1776155698707|/172.18.0.7:57664|Sebi Dumitrescu|0729588190|sebi-dumitrescu@gmail.com|licitez 7692 
+[14-04-2026 08:35:14] [message_processor.log] MESSAGE_SENT|1776155698894|/172.18.0.8:42054|Sofia Rusu|0740548579|sofia-rusu@gmail.com|licitez 3352 
+[14-04-2026 08:35:14] [message_processor.log] MESSAGE_SENT|1776155699064|/172.18.0.9:35930|Theo Rosu|0729097766|theo-rosu@gmail.com|licitez 3721 
+[14-04-2026 08:35:14] [message_processor.log] FINAL 
+[14-04-2026 08:35:14] [bidding_processor.log] MESSAGE_RECEIVED|1776155698707|/172.18.0.7:57664|Sebi Dumitrescu|0729588190|sebi-dumitrescu@gmail.com|licitez 7692 
+[14-04-2026 08:35:14] [bidding_processor.log] MESSAGE_RECEIVED|1776155698894|/172.18.0.8:42054|Sofia Rusu|0740548579|sofia-rusu@gmail.com|licitez 3352 
+[14-04-2026 08:35:14] [bidding_processor.log] MESSAGE_RECEIVED|1776155699064|/172.18.0.9:35930|Theo Rosu|0729097766|theo-rosu@gmail.com|licitez 3721 
+[14-04-2026 08:35:14] [bidding_processor.log] WINNER|[14-04-2026 08:34:58] Sebi Dumitrescu [0729588190 | sebi-dumitrescu@gmail.com] >>> licitez 7692 
+[14-04-2026 08:35:14] [bidding_processor.log] FINAL 
+[14-04-2026 08:35:14] [auctioneer.log] WINNER|1776155698707|/172.18.0.7:57664|Sebi Dumitrescu|0729588190|sebi-dumitrescu@gmail.com|licitez 7692 
+[14-04-2026 08:35:14] [auctioneer.log] FINAL 
+[14-04-2026 08:35:14] [bidder_4d4d45e3-ae2e-4ac0-a773-05f263b78f87.log] RESULT|1776155714292|0.0.0.0/0.0.0.0:1500|Sebi Dumitrescu|0729588190|sebi-dumitrescu@gmail.com|Licitatie castigata! Pret castigator: 7692 
+[14-04-2026 08:35:14] [bidder_3721993a-bf47-414d-9195-f955f1d256b2.log] RESULT|1776155714292|0.0.0.0/0.0.0.0:1500||||Licitatie pierduta... 
+[14-04-2026 08:35:14] [bidder_849143d6-ab0d-44ed-9b41-c7d5de34e8a4.log] RESULT|1776155714292|0.0.0.0/0.0.0.0:1500||||Licitatie pierduta... 
+[14-04-2026 08:35:14] [auctioneer.log] TIME_ENDED|Au trecut cele 15 secunde 
+[14-04-2026 08:35:14] [bidder_3721993a-bf47-414d-9195-f955f1d256b2.log] FINAL 
+[14-04-2026 08:35:14] [bidder_849143d6-ab0d-44ed-9b41-c7d5de34e8a4.log] FINAL 
+[14-04-2026 08:35:14] [bidder_4d4d45e3-ae2e-4ac0-a773-05f263b78f87.log] FINAL 
+[14-04-2026 08:35:24] [heartbeat.log] RESTART|auctioneer 
+[14-04-2026 08:35:25] [heartbeat.log] RESTART|bidder_0e84153cac0b 
+[14-04-2026 08:35:25] [heartbeat.log] HEARTBEAT|auctioneer 
+[14-04-2026 08:35:25] [auctioneer.log] START 
+[14-04-2026 08:35:25] [heartbeat.log] RESTART|bidding-processor 
+[14-04-2026 08:35:25] [heartbeat.log] HEARTBEAT|bidder_0e84153cac0b 
+[14-04-2026 08:35:25] [bidder_068ac9c0-b607-48ae-8fec-f4926ccab713.log] START 
+[14-04-2026 08:35:25] [heartbeat.log] RESTART|bidder_8e56bd4a31d5 
+[14-04-2026 08:35:25] [bidder_068ac9c0-b607-48ae-8fec-f4926ccab713.log] SEND_BID|1776155725564|/172.18.0.5:53808|Vlad Stan|0739166924|vlad-stan@gmail.com|licitez 2003 
+[14-04-2026 08:35:25] [bidder_068ac9c0-b607-48ae-8fec-f4926ccab713.log] WAIT_RESULT 
+[14-04-2026 08:35:25] [auctioneer.log] OFFER|1776155725564|/172.18.0.5:53808|Vlad Stan|0739166924|vlad-stan@gmail.com|licitez 2003 
+[14-04-2026 08:35:25] [heartbeat.log] HEARTBEAT|bidding-processor 
+[14-04-2026 08:35:25] [bidding_processor.log] START 
+[14-04-2026 08:35:25] [heartbeat.log] RESTART|message-processor 
+[14-04-2026 08:35:25] [heartbeat.log] HEARTBEAT|bidder_8e56bd4a31d5 
+[14-04-2026 08:35:26] [bidder_f070a02c-9e3a-4290-b407-adbe8dd11e8c.log] START 
+[14-04-2026 08:35:26] [heartbeat.log] RESTART|bidder_44bdd11bd881 
+[14-04-2026 08:35:26] [bidder_f070a02c-9e3a-4290-b407-adbe8dd11e8c.log] SEND_BID|1776155726139|/172.18.0.7:33572|Sebi Rosu|0783224827|sebi-rosu@gmail.com|licitez 5449 
+[14-04-2026 08:35:26] [bidder_f070a02c-9e3a-4290-b407-adbe8dd11e8c.log] SEND_DUPLICATE_BID|1776155726139|/172.18.0.7:33572|Sebi Rosu|0783224827|sebi-rosu@gmail.com|licitez 5449 
+[14-04-2026 08:35:26] [auctioneer.log] OFFER|1776155726139|/172.18.0.7:33572|Sebi Rosu|0783224827|sebi-rosu@gmail.com|licitez 5449 
+[14-04-2026 08:35:26] [bidder_f070a02c-9e3a-4290-b407-adbe8dd11e8c.log] WAIT_RESULT 
+[14-04-2026 08:35:26] [heartbeat.log] HEARTBEAT|message-processor 
+[14-04-2026 08:35:26] [message_processor.log] START 
+[14-04-2026 08:35:26] [heartbeat.log] HEARTBEAT|bidder_44bdd11bd881 
+[14-04-2026 08:35:26] [bidder_7aa279fe-9dc0-4a0e-9c5c-ce6a08dff72e.log] START 
+[14-04-2026 08:35:26] [bidder_7aa279fe-9dc0-4a0e-9c5c-ce6a08dff72e.log] SEND_BID|1776155726541|/172.18.0.9:42152|Sebi Stan|0748590031|sebi-stan@gmail.com|licitez 8597 
+[14-04-2026 08:35:26] [auctioneer.log] OFFER|1776155726541|/172.18.0.9:42152|Sebi Stan|0748590031|sebi-stan@gmail.com|licitez 8597 
+[14-04-2026 08:35:26] [bidder_7aa279fe-9dc0-4a0e-9c5c-ce6a08dff72e.log] WAIT_RESULT 
+[14-04-2026 08:35:30] [heartbeat.log] HEARTBEAT|auctioneer 
+[14-04-2026 08:35:30] [heartbeat.log] HEARTBEAT|bidder_0e84153cac0b 
+[14-04-2026 08:35:30] [heartbeat.log] HEARTBEAT|bidding-processor 
+[14-04-2026 08:35:30] [heartbeat.log] HEARTBEAT|bidder_8e56bd4a31d5 
+[14-04-2026 08:35:31] [heartbeat.log] HEARTBEAT|message-processor 
+[14-04-2026 08:35:31] [heartbeat.log] HEARTBEAT|bidder_44bdd11bd881 
+[14-04-2026 08:35:35] [heartbeat.log] HEARTBEAT|auctioneer 
+[14-04-2026 08:35:35] [heartbeat.log] HEARTBEAT|bidder_0e84153cac0b 
+[14-04-2026 08:35:35] [heartbeat.log] HEARTBEAT|bidding-processor 
+[14-04-2026 08:35:35] [heartbeat.log] HEARTBEAT|bidder_8e56bd4a31d5 
+[14-04-2026 08:35:36] [heartbeat.log] HEARTBEAT|message-processor 
+[14-04-2026 08:35:36] [heartbeat.log] HEARTBEAT|bidder_44bdd11bd881 
+[14-04-2026 08:35:40] [heartbeat.log] HEARTBEAT|auctioneer 
+[14-04-2026 08:35:40] [heartbeat.log] HEARTBEAT|bidder_0e84153cac0b 
+[14-04-2026 08:35:40] [heartbeat.log] HEARTBEAT|bidder_8e56bd4a31d5 
+[14-04-2026 08:35:41] [heartbeat.log] HEARTBEAT|message-processor 
+[14-04-2026 08:35:41] [heartbeat.log] HEARTBEAT|bidder_44bdd11bd881 
+[14-04-2026 08:35:41] [auctioneer.log] END_RECEIVED 
+[14-04-2026 08:35:41] [auctioneer.log] SEND|1776155725564|/172.18.0.5:53808|Vlad Stan|0739166924|vlad-stan@gmail.com|licitez 2003 
+[14-04-2026 08:35:41] [auctioneer.log] SEND|1776155726139|/172.18.0.7:33572|Sebi Rosu|0783224827|sebi-rosu@gmail.com|licitez 5449 
+[14-04-2026 08:35:41] [auctioneer.log] SEND|1776155726541|/172.18.0.9:42152|Sebi Stan|0748590031|sebi-stan@gmail.com|licitez 8597 
+[14-04-2026 08:35:41] [auctioneer.log] SEND_ALL|Au fost trimise toate ofertele 
+[14-04-2026 08:35:41] [message_processor.log] MESSAGE_RECEIVED|1776155725564|/172.18.0.5:53808|Vlad Stan|0739166924|vlad-stan@gmail.com|licitez 2003 
+[14-04-2026 08:35:41] [message_processor.log] MESSAGE_RECEIVED|1776155726139|/172.18.0.7:33572|Sebi Rosu|0783224827|sebi-rosu@gmail.com|licitez 5449 
+[14-04-2026 08:35:41] [message_processor.log] MESSAGE_RECEIVED|1776155726541|/172.18.0.9:42152|Sebi Stan|0748590031|sebi-stan@gmail.com|licitez 8597 
+[14-04-2026 08:35:41] [message_processor.log] MESSAGE_SORTED|1776155725564|/172.18.0.5:53808|Vlad Stan|0739166924|vlad-stan@gmail.com|licitez 2003,1776155726139|/172.18.0.7:33572|Sebi Rosu|0783224827|sebi-rosu@gmail.com|licitez 5449,1776155726541|/172.18.0.9:42152|Sebi Stan|0748590031|sebi-stan@gmail.com|licitez 8597 
+[14-04-2026 08:35:41] [message_processor.log] ERROR|Nu ma pt coencta la BiddingProcessor 
+[14-04-2026 08:35:45] [heartbeat.log] HEARTBEAT|auctioneer 
+[14-04-2026 08:35:45] [heartbeat.log] HEARTBEAT|bidder_0e84153cac0b 
+[14-04-2026 08:35:45] [heartbeat.log] HEARTBEAT|bidder_8e56bd4a31d5 
+[14-04-2026 08:35:46] [heartbeat.log] HEARTBEAT|bidder_44bdd11bd881 
+[14-04-2026 08:35:47] [heartbeat.log] RESTART|bidding-processor 
+[14-04-2026 08:35:47] [heartbeat.log] HEARTBEAT|bidding-processor 
+[14-04-2026 08:35:47] [bidding_processor.log] START 
+[14-04-2026 08:35:50] [heartbeat.log] HEARTBEAT|auctioneer 
+[14-04-2026 08:35:50] [heartbeat.log] HEARTBEAT|bidder_0e84153cac0b 
+[14-04-2026 08:35:50] [heartbeat.log] HEARTBEAT|bidder_8e56bd4a31d5 
+[14-04-2026 08:35:51] [heartbeat.log] HEARTBEAT|bidder_44bdd11bd881 
+[14-04-2026 08:35:52] [heartbeat.log] HEARTBEAT|bidding-processor 
+[14-04-2026 08:35:53] [heartbeat.log] RESTART|message-processor 
+[14-04-2026 08:35:53] [heartbeat.log] HEARTBEAT|message-processor 
+[14-04-2026 08:35:53] [message_processor.log] START 
+[14-04-2026 08:35:55] [heartbeat.log] HEARTBEAT|auctioneer 
+[14-04-2026 08:35:55] [heartbeat.log] HEARTBEAT|bidder_0e84153cac0b 
+[14-04-2026 08:35:55] [heartbeat.log] HEARTBEAT|bidder_8e56bd4a31d5 
+[14-04-2026 08:35:56] [heartbeat.log] HEARTBEAT|bidder_44bdd11bd881 
+[14-04-2026 08:35:57] [heartbeat.log] HEARTBEAT|bidding-processor 
+[14-04-2026 08:35:58] [heartbeat.log] HEARTBEAT|message-processor 
+[14-04-2026 08:36:02] [heartbeat.log] HEARTBEAT|bidding-processor 
+[14-04-2026 08:36:03] [heartbeat.log] HEARTBEAT|message-processor 
+[14-04-2026 08:36:05] [heartbeat.log] RESTART|auctioneer 
+[14-04-2026 08:36:06] [heartbeat.log] RESTART|bidder_0e84153cac0b 
+[14-04-2026 08:36:06] [heartbeat.log] HEARTBEAT|auctioneer 
+[14-04-2026 08:36:06] [auctioneer.log] START 
+[14-04-2026 08:36:06] [auctioneer.log] SEND|1776155725564|/172.18.0.5:53808|Vlad Stan|0739166924|vlad-stan@gmail.com|licitez 2003 
+[14-04-2026 08:36:06] [auctioneer.log] SEND|1776155726139|/172.18.0.7:33572|Sebi Rosu|0783224827|sebi-rosu@gmail.com|licitez 5449 
+[14-04-2026 08:36:06] [auctioneer.log] SEND|1776155726541|/172.18.0.9:42152|Sebi Stan|0748590031|sebi-stan@gmail.com|licitez 8597 
+[14-04-2026 08:36:06] [auctioneer.log] SEND_ALL|Au fost trimise toate ofertele 
+[14-04-2026 08:36:06] [heartbeat.log] HEARTBEAT|bidder_0e84153cac0b 
+[14-04-2026 08:36:06] [message_processor.log] MESSAGE_SENT|1776155725564|/172.18.0.5:53808|Vlad Stan|0739166924|vlad-stan@gmail.com|licitez 2003 
+[14-04-2026 08:36:06] [message_processor.log] MESSAGE_SENT|1776155726139|/172.18.0.7:33572|Sebi Rosu|0783224827|sebi-rosu@gmail.com|licitez 5449 
+[14-04-2026 08:36:06] [message_processor.log] MESSAGE_SENT|1776155726541|/172.18.0.9:42152|Sebi Stan|0748590031|sebi-stan@gmail.com|licitez 8597 
+[14-04-2026 08:36:06] [message_processor.log] FINAL 
+[14-04-2026 08:36:06] [bidder_fa0d5159-a0f8-4376-9562-c0e30f67eded.log] START 
+[14-04-2026 08:36:06] [bidding_processor.log] MESSAGE_RECEIVED|1776155725564|/172.18.0.5:53808|Vlad Stan|0739166924|vlad-stan@gmail.com|licitez 2003 
+[14-04-2026 08:36:06] [bidding_processor.log] MESSAGE_RECEIVED|1776155726139|/172.18.0.7:33572|Sebi Rosu|0783224827|sebi-rosu@gmail.com|licitez 5449 
+[14-04-2026 08:36:06] [bidding_processor.log] MESSAGE_RECEIVED|1776155726541|/172.18.0.9:42152|Sebi Stan|0748590031|sebi-stan@gmail.com|licitez 8597 
+[14-04-2026 08:36:06] [bidding_processor.log] WINNER|[14-04-2026 08:35:26] Sebi Stan [0748590031 | sebi-stan@gmail.com] >>> licitez 8597 
+[14-04-2026 08:36:09] [heartbeat.log] RESTART|bidder_8e56bd4a31d5 
+[14-04-2026 08:36:09] [heartbeat.log] RESTART|bidder_44bdd11bd881 
+[14-04-2026 08:36:09] [heartbeat.log] HEARTBEAT|bidder_8e56bd4a31d5 
+[14-04-2026 08:36:09] [heartbeat.log] EROARE|java.lang.Exception: Eroare: Microserviciul 53308 a fost deconectat. 
+[14-04-2026 08:36:09] [heartbeat.log] ERROR: Microserviciul 53308 a fost deconectat 
+[14-04-2026 08:36:12] [heartbeat.log] RESTART|bidding-processor 
+[14-04-2026 08:36:12] [heartbeat.log] RESTART|bidder_44bdd11bd881 
+[14-04-2026 08:36:13] [bidding_processor.log] START 
+[14-04-2026 08:36:16] [heartbeat.log] RESTART|auctioneer 
+[14-04-2026 08:36:16] [heartbeat.log] RESTART|bidding-processor 
+[14-04-2026 08:36:16] [auctioneer.log] START 
+[14-04-2026 08:36:17] [heartbeat.log] RESTART|message-processor 
+[14-04-2026 08:36:17] [bidding_processor.log] START 
+[14-04-2026 08:36:17] [heartbeat.log] RESTART|bidder_44bdd11bd881 
+[14-04-2026 08:36:17] [message_processor.log] START 
+[14-04-2026 08:36:20] [heartbeat.log] RESTART|auctioneer 
+[14-04-2026 08:36:21] [heartbeat.log] RESTART|bidder_0e84153cac0b 
+[14-04-2026 08:36:21] [auctioneer.log] START 
+[14-04-2026 08:36:21] [heartbeat.log] RESTART|bidding-processor 
+[14-04-2026 08:36:21] [auctioneer.log] SEND|1776155725564|/172.18.0.5:53808|Vlad Stan|0739166924|vlad-stan@gmail.com|licitez 2003 
+[14-04-2026 08:36:21] [auctioneer.log] SEND|1776155726139|/172.18.0.7:33572|Sebi Rosu|0783224827|sebi-rosu@gmail.com|licitez 5449 
+[14-04-2026 08:36:21] [auctioneer.log] SEND|1776155726541|/172.18.0.9:42152|Sebi Stan|0748590031|sebi-stan@gmail.com|licitez 8597 
+[14-04-2026 08:36:21] [auctioneer.log] SEND_ALL|Au fost trimise toate ofertele 
+[14-04-2026 08:36:21] [message_processor.log] MESSAGE_RECEIVED|1776155725564|/172.18.0.5:53808|Vlad Stan|0739166924|vlad-stan@gmail.com|licitez 2003 
+[14-04-2026 08:36:21] [message_processor.log] MESSAGE_RECEIVED|1776155726139|/172.18.0.7:33572|Sebi Rosu|0783224827|sebi-rosu@gmail.com|licitez 5449 
+[14-04-2026 08:36:21] [message_processor.log] MESSAGE_RECEIVED|1776155726541|/172.18.0.9:42152|Sebi Stan|0748590031|sebi-stan@gmail.com|licitez 8597 
+[14-04-2026 08:36:21] [message_processor.log] MESSAGE_SORTED|1776155725564|/172.18.0.5:53808|Vlad Stan|0739166924|vlad-stan@gmail.com|licitez 2003,1776155726139|/172.18.0.7:33572|Sebi Rosu|0783224827|sebi-rosu@gmail.com|licitez 5449,1776155726541|/172.18.0.9:42152|Sebi Stan|0748590031|sebi-stan@gmail.com|licitez 8597 
+[14-04-2026 08:36:21] [message_processor.log] MESSAGE_SENT|1776155725564|/172.18.0.5:53808|Vlad Stan|0739166924|vlad-stan@gmail.com|licitez 2003 
+[14-04-2026 08:36:21] [message_processor.log] MESSAGE_SENT|1776155726139|/172.18.0.7:33572|Sebi Rosu|0783224827|sebi-rosu@gmail.com|licitez 5449 
+[14-04-2026 08:36:21] [message_processor.log] MESSAGE_SENT|1776155726541|/172.18.0.9:42152|Sebi Stan|0748590031|sebi-stan@gmail.com|licitez 8597 
+[14-04-2026 08:36:21] [message_processor.log] FINAL 
+[14-04-2026 08:36:21] [bidder_67164204-6bfd-4224-8d2c-7965e1efa0da.log] START 
+[14-04-2026 08:36:21] [bidder_67164204-6bfd-4224-8d2c-7965e1efa0da.log] SEND_BID|1776155781518|/172.18.0.7:40804|Elena Ionescu|0763125018|elena-ionescu@gmail.com|licitez 3498 
+[14-04-2026 08:36:21] [auctioneer.log] WINNER|1776155781518|/172.18.0.7:40804|Elena Ionescu|0763125018|elena-ionescu@gmail.com|licitez 3498 
+[14-04-2026 08:36:21] [bidder_67164204-6bfd-4224-8d2c-7965e1efa0da.log] WAIT_RESULT 
+[14-04-2026 08:36:21] [auctioneer.log] FINAL 
+[14-04-2026 08:36:22] [heartbeat.log] RESTART|bidder_8e56bd4a31d5 
+[14-04-2026 08:36:22] [bidding_processor.log] START 
+[14-04-2026 08:36:22] [heartbeat.log] RESTART|message-processor 
+[14-04-2026 08:36:22] [heartbeat.log] RESTART|bidder_44bdd11bd881 
+[14-04-2026 08:36:22] [message_processor.log] START 
+[14-04-2026 08:36:25] [heartbeat.log] RESTART|auctioneer 
+[14-04-2026 08:36:26] [heartbeat.log] RESTART|bidder_0e84153cac0b 
+[14-04-2026 08:36:26] [auctioneer.log] START 
+[14-04-2026 08:36:26] [bidder_4a324e9a-958d-4cd6-b27a-97495e0684fd.log] START 
+[14-04-2026 08:36:26] [bidder_4a324e9a-958d-4cd6-b27a-97495e0684fd.log] SEND_BID|1776155786550|/172.18.0.7:34478|Ion Dumitrescu|0738106814|ion-dumitrescu@gmail.com|licitez 6007 
+[14-04-2026 08:36:26] [bidder_4a324e9a-958d-4cd6-b27a-97495e0684fd.log] WAIT_RESULT 
+[14-04-2026 08:36:26] [auctioneer.log] OFFER|1776155786550|/172.18.0.7:34478|Ion Dumitrescu|0738106814|ion-dumitrescu@gmail.com|licitez 6007 

@@ -41,6 +41,21 @@ class LibraryDAOService : ILibraryDAOService {
                     "Teora",
                     "Partea intai. Naufragiatii vazduhului. Capitolul 1. Uraganul din 1865. ...")
             ))
+
+            _libraryRepository.add(Book(
+                Content("Jules Verne",
+                "Casa cu aburi",
+                "Albatros",
+                "Capitolul I. S-a pus un premiu pe capul unui om. Se ofera premiu de 2000 de lire ...")
+            ))
+
+            _libraryRepository.add(Book(
+                Content(
+                    "Roberto Ierusalimschy",
+                    "Programming in LUA",
+                    "Teora",
+                    "Preface. When Waldemar, Luiz, and I started the development of Lua, back in 1993, we could hardly imagine that it would spread as it did. ...")
+            ))
         }
     }
     /*private var _books: MutableSet<Book> = mutableSetOf(

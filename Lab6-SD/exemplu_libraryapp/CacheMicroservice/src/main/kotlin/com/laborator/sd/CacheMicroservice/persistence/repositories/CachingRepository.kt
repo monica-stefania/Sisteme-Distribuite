@@ -23,7 +23,7 @@ class CachingRepository: ICachingRepository {
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     timestamp INTEGER NOT NULL,
                     query VARCHAR(100) UNIQUE,
-                    result TEXT UNIQUE);
+                    result TEXT);
             """
         )
     }

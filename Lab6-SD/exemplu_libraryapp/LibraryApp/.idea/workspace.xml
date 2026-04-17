@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaeeab89-547c-4d96-90d9-fe18d79942f5" name="Default Changelist" comment="" />
+    <list default="true" id="aaeeab89-547c-4d96-90d9-fe18d79942f5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../Lab4-SD/Family-Expense-Tracker" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lab4-SD/Family-Expense-Tracker" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CacheMicroservice/src/main/kotlin/com/laborator/sd/CacheMicroservice/persistence/repositories/CachingRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../CacheMicroservice/src/main/kotlin/com/laborator/sd/CacheMicroservice/persistence/repositories/CachingRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/sd/laborator/business/services/LibraryDAOService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/sd/laborator/business/services/LibraryDAOService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/sd/laborator/presentation/controllers/LibraryPrinterController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/sd/laborator/presentation/controllers/LibraryPrinterController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sd/laborator/business/services/LibraryDAOService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sd/laborator/business/services/LibraryDAOService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sd/laborator/persistence/repositories/LibraryRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sd/laborator/persistence/repositories/LibraryRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sd/laborator/presentation/controllers/LibraryPrinterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sd/laborator/presentation/controllers/LibraryPrinterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LibraryAppGUI/library_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LibraryAppGUI/library_manager.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,7 +47,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Kotlin.LibraryAppKt.executor": "Debug",
+    "Kotlin.LibraryAppKt.executor": "Run",
     "Maven.LibraryApp [clean].executor": "Run",
     "Maven.LibraryApp [compile].executor": "Run",
     "Maven.LibraryApp [org.springframework.boot:spring-boot-maven-plugin:2.3.12.RELEASE:run].executor": "Run",
@@ -48,7 +58,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/moni/Documents/Sisteme-Distribuite/Lab6-SD/exemplu_libraryapp/LibraryApp",
+    "last_opened_file_path": "/home/moni/Documents/Sisteme-Distribuite/Lab7-SD/Okazii",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
@@ -113,16 +123,5 @@
       <updated>1581368521262</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/com/sd/laborator/presentation/controllers/LibraryPrinterController.kt</url>
-          <line>110</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
