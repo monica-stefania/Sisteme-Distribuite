@@ -9,10 +9,16 @@ import kotlin.concurrent.thread
 
 class MessageManagerMicroservice {
     private val subscribers: HashMap<Int, Socket>
+    private val subscriberNames: HashMap<Int, String> = hashMapOf()
+    private val socketToPort: HashMap<Int, Int> = hashMapOf()
+
     private lateinit var messageManagerSocket: ServerSocket
+    private lateinit var registrySocket: Socket
 
     companion object Constants {
         const val MESSAGE_MANAGER_PORT = 1500
+        const val REGISTRY_PORT = 1900
+        val REGISTRY_HOST = System.getenv("REGISTRY_HOST") ?: "localhost"
     }
 
     init {
@@ -42,6 +48,25 @@ class MessageManagerMicroservice {
             destinationSocket.getOutputStream().write((message + "\n").toByteArray())
         } else {
             println("Eroare: Destinatarul cu portul $destination nu a fost gasit in catalog!")
+        }
+    }
+
+    private fun notifyRegistry(action: String, serviceName: String, servicePort: Int){
+        try{
+            registrySocket = Socket(REGISTRY_HOST, REGISTRY_PORT)
+            val message = when(action) {
+                "subscribe" -> "subscribe $serviceName $servicePort"
+                "unsubscribe" -> "unsubscribe $serviceName"
+                else -> return
+            }
+
+            registrySocket.getOutputStream().write("$message\n".toByteArray())
+
+            val response = BufferedReader(InputStreamReader(registrySocket.inputStream)).readLine()
+            println("Registry a raspuns: $response")
+            registrySocket.close()
+        }catch (e: Exception) {
+            println("Nu pot notifica Registry: ${e.message}")
         }
     }
 
@@ -76,9 +101,13 @@ class MessageManagerMicroservice {
                     if (receivedMessage == null) {
                         // deci subscriber-ul respectiv a fost deconectat
                         println("Subscriber-ul ${clientConnection.port} a fost deconectat.")
+                        val port = socketToPort[clientConnection.port]
+                        val name = subscriberNames[port] ?: "unknown"
                         synchronized(subscribers) {
                             subscribers.remove(clientConnection.port)
+                            subscriberNames.remove(clientConnection.port)
                         }
+                        notifyRegistry("unsubscribe", name, port!!)
                         bufferReader.close()
                         clientConnection.close()
                         break
@@ -109,15 +138,21 @@ class MessageManagerMicroservice {
                         }
 
                         "identificare" -> {
-                            val parts = receivedMessage.split(" ", limit = 2)
-                            val appPort = parts[1].toInt()
+                            val parts = receivedMessage.split(" ", limit = 3)
+                            val serviceName = parts[1]
+                            val appPort = parts[2].toInt()
                             subscribers[appPort] = clientConnection
-                            println("S-a inregistrat in catalog clientul cu portul: $appPort")
+                            subscriberNames[appPort] = serviceName
+                            socketToPort[clientConnection.port] = appPort
+
+                            println("S-a inregistrat in catalog clientul $serviceName cu portul: $appPort")
+                            notifyRegistry("subscribe", serviceName, appPort)
                         }
 
                         "dummy" -> {
                             val parts = receivedMessage.split(" ", limit = 2)
-
+                            val senderPort = parts[1].toInt()
+                            broadcastMessage(receivedMessage, senderPort)
                         }
                     }
                 }

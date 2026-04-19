@@ -14,7 +14,7 @@ import kotlin.system.exitProcess
 class StudentMicroservice {
     // intrebarile si raspunsurile sunt mentinute intr-o lista de perechi de forma:
     // [<INTREBARE 1, RASPUNS 1>, <INTREBARE 2, RASPUNS 2>, ... ]
-    private lateinit var questionDatabase: MutableList<Pair<String, String>>
+    private var questionDatabase: MutableList<Pair<String, String>>
     private lateinit var messageManagerSocket: Socket
     private lateinit var messageManagerSocketUI: Socket
     private lateinit var studentMicroserviceServerSocket: ServerSocket
@@ -49,12 +49,12 @@ class StudentMicroservice {
     private fun subscribeToMessageManager() {
         try {
             messageManagerSocket = Socket(MESSAGE_MANAGER_HOST, MESSAGE_MANAGER_PORT)
-            messageManagerSocket.getOutputStream().write(("identificare $STUDENT_PORT\n").toByteArray())
+            messageManagerSocket.getOutputStream().write(("identificare StudentMicroservice_$STUDENT_PORT $STUDENT_PORT\n").toByteArray())
 
             messageManagerSocketUI = Socket(MESSAGE_MANAGER_HOST, MESSAGE_MANAGER_PORT_UI)
             messageManagerSocketUI.soTimeout = 3000
             val uiPort = STUDENT_PORT + 10000
-            messageManagerSocketUI.getOutputStream().write(("identificare $uiPort\n").toByteArray())
+            messageManagerSocketUI.getOutputStream().write(("identificare StudentUI $uiPort\n").toByteArray())
             println("M-am conectat la MessageManager!")
         } catch (e: Exception) {
             println("Nu ma pot conecta la MessageManager!")
@@ -138,12 +138,14 @@ class StudentMicroservice {
 
             // se foloseste un thread separat pentru tratarea intrebarii primite
             thread {
-                val (messageType, messageDestination, messageBody) = response.split(" ", limit = 3)
+                val messageType = response.substringBefore(" ")
 
                 when(messageType) {
                     // tipul mesajului cunoscut de acest microserviciu este de forma:
                     // intrebare <DESTINATIE_RASPUNS> <CONTINUT_INTREBARE>
                     "intrebare" -> {
+                        val (_, messageDestination, messageBody) = response.split(" ", limit = 3)
+
                         println("Am primit o intrebare de la $messageDestination: \"${messageBody}\"")
                         var responseToQuestion = respondToQuestion(messageBody)
                         responseToQuestion?.let {
@@ -151,6 +153,13 @@ class StudentMicroservice {
                             println("Trimit raspunsul: \"${response}\"")
                             messageManagerSocket.getOutputStream().write((responseToQuestion + "\n").toByteArray())
                         }
+                    }
+                    "dummy" -> {
+                        val (_, messageDestination) = response.split(" ", limit = 2)
+                        println("Am primit dummy de la $messageDestination")
+                        println("Trimit heartbeat sa stie ca traiesc")
+
+                        messageManagerSocket.getOutputStream().write(("raspuns $messageDestination heartbeat-$STUDENT_PORT\n").toByteArray())
                     }
                 }
             }

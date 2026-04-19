@@ -3,7 +3,15 @@
 DIR_MM="MessageManagerMicroservice"
 DIR_TEACHER="TeacherMicroservice"
 DIR_STUDENT="StudentMicroservice"
+DIR_HEARTBEAT="HeartbeatMicroservice"
+DIR_REGISTRY="RegistryMicroservice"
 REGISTRY="localhost:5000"
+
+echo "===  Build & Push: Registry ==="
+cd $DIR_REGISTRY || { echo "Nu gasesc folderul $DIR_REGISTRY!"; exit 1; }
+docker build -t $REGISTRY/registry_microservice:v1 .
+docker push $REGISTRY/registry_microservice:v1
+cd ..
 
 echo "=== 1. Build & Push: Message Manager ==="
 cd $DIR_MM || { echo "Nu gasesc folderul $DIR_MM!"; exit 1; }
@@ -61,6 +69,12 @@ Ca sa faca un ou
 EOF
 docker build -t $REGISTRY/student_microservice:tip3 .
 docker push $REGISTRY/student_microservice:tip3
+cd ..
+
+echo "=== 4. Build & Push: Heartbeat ==="
+cd $DIR_HEARTBEAT || { echo "Nu gasesc folderul $DIR_HEARTBEAT!"; exit 1; }
+docker build -t $REGISTRY/heartbeat_microservice:v1 .
+docker push $REGISTRY/heartbeat_microservice:v1
 cd ..
 
 echo ""
