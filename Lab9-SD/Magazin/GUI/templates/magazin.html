@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Magazin</title>
+    <style>
+        body{
+            background-color: ivory;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            font-size: 16px;
+        }
+        .magazin {
+            border: 2px solid cadetblue;
+            border-radius: 8px;
+            background-color: AliceBlue;
+            padding: 20px 30px;
+            display: inline-block;
+        }
+        h1{
+            color: cadetblue;
+        }
+        input, select{
+            width: 200px;
+            margin-bottom: 10px;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 200px;
+            background-color: ivory;
+            color: cadetblue;
+            padding: 10px;
+            border: 2px solid cadetblue;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        button:hover{
+            cursor: pointer;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="magazin">
+    <h2>Salut, {{ session['nume'] }} {{ session['prenume'] }}!</h2>
+    <a href="/logout">Deconectare</a>
+        <br>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul style="color: red;">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form action="/trimite_comanda" method="POST">
+        <label>Alege Produsul:</label>
+        <select name="produs" required>
+            {% for p in produse %}
+                <option value="{{ p }}">{{ p }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label>Cantitate:</label>
+        <input type="number" name="cantitate" min="1" value="1" required>
+        <br>
+        <label>Confirma adresa de livrare:</label>
+        <input type="text" name="adresaLivrare" value="{{ session['adresaLivrare'] }}" required>
+        <hr>
+        <button type="submit">Plasează Comanda</button>
+    </form>
+    </div>
+</body>
+</html>

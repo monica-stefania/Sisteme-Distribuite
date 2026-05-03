@@ -1,0 +1,4 @@
+ls -l | grep ".kt" | wc -l
+echo "hello world" | wc -w
+fortune | cowsay | lolcat
+

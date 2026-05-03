@@ -15,14 +15,6 @@
   <component name="ChangeListManager">
     <list default="true" id="178d4783-2744-45e4-8c88-1eb209e6ac05" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../Lab4-SD/Family-Expense-Tracker" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab4-SD/Family-Expense-Tracker" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/CacheMicroservice/src/main/kotlin/com/laborator/sd/CacheMicroservice/persistence/repositories/CachingRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/CacheMicroservice/src/main/kotlin/com/laborator/sd/CacheMicroservice/persistence/repositories/CachingRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/src/main/kotlin/com/sd/laborator/business/services/LibraryDAOService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/src/main/kotlin/com/sd/laborator/business/services/LibraryDAOService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/src/main/kotlin/com/sd/laborator/presentation/controllers/LibraryPrinterController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/src/main/kotlin/com/sd/laborator/presentation/controllers/LibraryPrinterController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/target/classes/com/sd/laborator/business/services/LibraryDAOService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/target/classes/com/sd/laborator/business/services/LibraryDAOService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/target/classes/com/sd/laborator/persistence/repositories/LibraryRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/target/classes/com/sd/laborator/persistence/repositories/LibraryRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/target/classes/com/sd/laborator/presentation/controllers/LibraryPrinterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryApp/target/classes/com/sd/laborator/presentation/controllers/LibraryPrinterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryAppGUI/library_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab6-SD/exemplu_libraryapp/LibraryAppGUI/library_manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +30,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -58,7 +50,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/moni/Documents/Okazii",
     "onboarding.tips.debug.path": "/home/moni/Documents/Sisteme-Distribuite/Lab7-SD/Okazii/HeartBeatMicroservice/src/Main.kt",
