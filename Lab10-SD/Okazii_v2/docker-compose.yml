@@ -1,0 +1,25 @@
+services:
+  bidder:
+    build:
+      context: ./Bidder
+      dockerfile: Dockerfile
+    network_mode: host
+
+  bidding-processor:
+    build:
+      context: ./BiddingProcessor
+      dockerfile: Dockerfile
+    network_mode: host
+
+  message_processor:
+    build:
+      context: ./MessageProcessor
+      dockerfile: Dockerfile
+    network_mode: host
+
+  auctioneer:
+    build:
+      context: ./Auctioneer
+      dockerfile: Dockerfile
+    network_mode: host
+
