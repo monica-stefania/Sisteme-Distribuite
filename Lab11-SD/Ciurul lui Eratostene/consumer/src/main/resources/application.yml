@@ -1,0 +1,10 @@
+micronaut:
+  application:
+    name: consumer
+  server:
+    port: 8082
+rabbitmq:
+  uri: amqp://localhost:5672
+  username: student
+  password: student
+

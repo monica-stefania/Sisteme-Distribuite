@@ -1,0 +1,24 @@
+micronaut:
+  application:
+    name: consumer
+  server:
+    port: 8082
+
+rabbitmq:
+  uri: amqp://localhost:5672
+  username: student
+  password: student
+
+datasources:
+  default:
+    url: jdbc:mysql://localhost:3306/clicks_db?createDatabaseIfNotExist=true
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: moni
+    password: monica25
+
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Butoane</title>
+        <style>
+            body { 
+                font-family: Arial, sans-serif; 
+                text-align: center; 
+                margin-top: 50px; 
+            }
+            button { 
+                font-size: 20px; 
+                padding: 15px 30px; 
+                margin: 10px; 
+                color:white;
+                border-radius: 10px;
+            }
+            button:hover{
+                cursor: pointer;
+                transform: scale(1.3);
+                transition: 0.5s;
+            }
+            #btn_red{
+                background-color: red;
+            }
+            #btn_green{
+                background-color: green;
+            }
+            #btn_yellow{
+                background-color: yellow;
+            }
+            #btn_pink{
+                background-color: pink;
+            }
+
+        </style>
+
+        <script>
+            function sendClick(name){
+                document.getElementById("status").innerText = "The click for" + name + "was send";
+
+                fetch('http://localhost:8081/clicks/send', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ buttonName: name })
+                })
+                .then(response => {
+                    if(response.ok) document.getElementById("status").innerText = "Succes";
+                })
+                .catch(error => {
+                    document.getElementById("status").innerText = "Error!";
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <h1>What's your favorite colour?</h1>
+        <h2>Click on a button</h2>
+        <button id="btn_red" onclick="sendClick('red')">Red</button>
+        <button id="btn_green" onclick="sendClick('green')">Green</button>
+        <button id="btn_yellow" onclick="sendClick('yellow')">Yellow</button>
+        <button id="btn_pink" onclick="sendClick('pink')"">Pink</button>
+
+        <p id="status">Waiting for clicks</p>
+    </body>
+</html>
+

@@ -1,0 +1,12 @@
+micronaut:
+  application:
+    name: producer
+  server:
+    port: 8081
+    cors:
+      enabled: true
+
+rabbitmq:
+  uri: amqp://localhost:5672
+  username: student
+  password: student

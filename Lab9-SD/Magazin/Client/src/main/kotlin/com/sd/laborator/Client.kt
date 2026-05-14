@@ -34,13 +34,24 @@ open class ClientMicroservice(
 ) {
 
     @Bean
-    open fun initData(repo: CatalogProduseRepository): CommandLineRunner{
+    open fun initData(repo: CatalogProduseRepository): CommandLineRunner {
         return CommandLineRunner {
             if (repo.count() == 0L) {
                 repo.save(Produs(denumire = "Masca protectie", pret = 5.0))
                 repo.save(Produs(denumire = "Vaccin anti-COVID-19", pret = 100.0))
                 repo.save(Produs(denumire = "Combinezon", pret = 50.0))
-                println("✅ Produse adăugate în catalogul SQLite!")
+                repo.save(Produs(denumire = "Dezinfectant maini 500ml", pret = 25.5))
+                repo.save(Produs(denumire = "Manusi latex (set 100 buc)", pret = 45.0))
+                repo.save(Produs(denumire = "Termometru infrarosu", pret = 120.0))
+                repo.save(Produs(denumire = "Viziera protectie", pret = 15.0))
+                repo.save(Produs(denumire = "Pulsoximetru", pret = 85.0))
+                repo.save(Produs(denumire = "Sapun antibacterian", pret = 12.5))
+                repo.save(Produs(denumire = "Test rapid antigen", pret = 20.0))
+                repo.save(Produs(denumire = "Alcool sanitar 0.5L", pret = 9.0))
+                repo.save(Produs(denumire = "Ochelari de protectie", pret = 30.0))
+                repo.save(Produs(denumire = "Pachet masti FFP2 (10 buc)", pret = 40.0))
+
+                println("Produse adaugate in catalog!")
             }
         }
     }

@@ -4,7 +4,7 @@ from flask import Flask, session, url_for, render_template, redirect, request, f
 app = Flask(__name__)
 app.secret_key = "cheie_secreta"
 
-MAGAZIN_URL = "http://localhost:46304"
+MAGAZIN_URL = "http://localhost:55619"
 
 @app.route('/')
 def index():
