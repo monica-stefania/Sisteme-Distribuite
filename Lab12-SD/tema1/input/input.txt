@@ -1,0 +1,4 @@
+https://en.wikipedia.org/wiki/Big_data
+https://en.wikipedia.org/wiki/MapReduce
+https://en.wikipedia.org/wiki/Apache_Hadoop
+https://example.com
