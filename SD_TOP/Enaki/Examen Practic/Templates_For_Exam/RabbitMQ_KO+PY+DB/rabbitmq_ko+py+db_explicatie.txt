@@ -1,0 +1,17 @@
+ 
+Problema care imbina RabbitMq + DataBase + Web Requests
+
+
+In tabelul Person este compus din (id, firstName, lastName, age, timestamp)
+
+
+Inserare persoana prin intermediul Rabbitmq:
+Mesajul are forma: 
+
+firstName lastName age
+
+
+
+GetPerson by firstName prin request de forma:
+
+localhost:8080/find?firstName=kurt

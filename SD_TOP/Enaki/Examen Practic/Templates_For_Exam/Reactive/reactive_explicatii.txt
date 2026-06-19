@@ -1,0 +1,13 @@
+ 
+Au fost eliminate BidderProcessor si MessageProcessor.
+Au Fost adaugate atribute noi la Message. Adaugate clasa de Logging.
+Adaugare Generare nume de bidderi.
+
+
+Notite:
+In project Structure, adaugati la Auctionner si Bidder dependenta fata de Logging si MessageLibrary. Acestea 2 se fac build primele!!! Apoi build-uti tot proiectul.
+
+
+Apoi:
+1. Rulati mai intaii Auctionner, fie din intellij, fie din fisierul jar generat.
+2. Rulati scriptul start_bidder.sh, care starteaza 20 de bidderi.

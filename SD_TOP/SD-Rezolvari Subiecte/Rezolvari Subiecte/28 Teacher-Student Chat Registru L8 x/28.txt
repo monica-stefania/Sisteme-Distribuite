@@ -1,0 +1,11 @@
+Pornind de la aplicația exemplu de chat din laboratorul 8, să se
+modifice aceasta prin introducerea unui procesor de flux care
+implementează un mecanism de tip registru (unde orice procesor de flux
+la pornire se va înregistra și apoi la distrugere se va șterge). Se
+poate utiliza un model de proiectare de tip observator.
+
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului. Se vor respecta principiile SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.

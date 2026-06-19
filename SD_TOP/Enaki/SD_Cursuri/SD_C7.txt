@@ -1,0 +1,53 @@
+SOLID la microservicii
+S:
+	- un microserviciu ar trebui sa implementeze doar o functie de business
+	- poti sparge microserviciul coarse-grained in microservicii fine si sa le bagi un orchestrator
+O:
+	- un microserviciu nu ar trebui sa fie niciodata modificat ca sa ofere functionalitati ocazionale sau de exceptie
+	- in loc sa ai un serviciu ce include cazurile exceptionale, faci un serviciu pentru ele si apelezi serviciul initial
+L:
+	- o versiune noua a unui microserviciu ar trebui intotdeauna sa poata inlocui o versiune veche fara sa strice nimic
+I:
+	- un microserviciu n-ar trebui sa expuna metode care nu-s direct asociate
+	- daca folosesti doar 30% din microserviciu, atunci ala nu e microserviciu
+D:
+	- un microserviciu n-ar trebui sa apeleze direct alt microserviciu
+	- ar trebui sa foloseasca un un Service Discovery(gen Docker) sau sa lase aplicatia sa determine la runtime ce ce microserviciu sa invoce
+	
+
+
+Principii de scalare a microserviciilor
+Horizontal Decomposition(X axis)
+	- scalarea prin adaugarea mai multor instante ale microserviciului in spatele unui load balancer
+	- adica adaugi mai multe masini
+Functional Decomposition(Vertical, Y Axis)
+	- imparte aplicatia in mai multe servicii diferite
+Data Partitioning(Z Axis)
+	- rulezi mai multe copii identice, dar fiecare se ocupa doar de un subset de date
+	- poti sa dirijezi spre fiecare serviciu in functie de niste criterii stabilite\
+
+
+
+Poti avea multe dependente intre microservicii si pentru o singura cerere sa pierzi mult timp
+O solutie ar fi sa implementezi mecanisme de caching:
+	- vin cererile
+	- modulul lb(load balancing) transfera cererea
+	- serviciul verifica daca are in cache cererea respectiva
+	- daca da, o returneaza, daca nu, face calculele necesare
+Exista:
+	- cache incapsulat(e bagat in serviciu)
+	- cache comun(e partajat intre mai multe instante ale microserviciului
+	- atasament(sidecar) ai un serviciu de cache cu care comunica microserviciul(asigura cuplare slaba si elimina redundantele)
+	- inverse proxy in care atasezi cache-ul la lbs
+
+
+
+Descoperire la client: te uiti intr-un service registry primesti o adresa si te conectezi la microserviciu
+Descoperire la server: te conectezi la un server lb/API Gateway care se uita in service registry si-ti da forward.
+Poti seta microserviciile sa se autoinregistreze sau sa se delogheze automat sau sa folosesti tool-uri externe
+Modele de migrare al aplicatiilor in cloud:
+	- rehost, iei de la tine si pui in cloud
+	- refactor, modifici aplicatia ca sa se potriveasca mai bine pe cloud
+	- replatform, nu faci mari modificari dar profiti de avantajele oferite
+	- rebuild, scrii aplicatia de la 0
+	- replace, retragi aplicatia si o inlocuiesti cu o noua aplicatie cloud nativa

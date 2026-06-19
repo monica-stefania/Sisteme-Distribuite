@@ -1,0 +1,92 @@
+version: '3.8'
+
+services:
+  # 1. Serviciul de Localizare (Catalogul clasei)
+  discovery:
+    build:
+      context: ./DiscoveryMicroservice
+      dockerfile: Dockerfile
+    container_name: discovery
+    ports:
+      - "2000:2000"
+    networks:
+      - ms-net
+    restart: always
+
+  # 2. Profesorul (Expune portul 1600 pentru interfața Python)
+  teacher_microservice:
+    build:
+      context: ./TeacherMicroservice
+      dockerfile: Dockerfile
+    container_name: teacher_microservice
+    ports:
+      - "1600:1600"
+    environment:
+      - DISCOVERY_HOST=discovery
+    networks:
+      - ms-net
+    depends_on:
+      - discovery
+    restart: always
+
+  # 3. Studentul 1 (Popescu)
+  student_1:
+    build:
+      context: ./StudentMicroservice
+      dockerfile: Dockerfile
+    container_name: student_1
+    hostname: student_popescu  # <--- FORȚEAZĂ REȚEAUA DOCKER SĂ ÎL GĂSEASCĂ DUPĂ ACEST NUME
+    environment:
+      - DISCOVERY_HOST=discovery
+      - STUDENT_NAME=student_popescu
+      - STUDENT_PORT=3001
+    volumes:
+      - ./question_database1.txt:/questions_database.txt
+    networks:
+      - ms-net
+    depends_on:
+      - discovery
+    restart: always
+
+  # 4. Studentul 2 (Ionescu)
+  student_2:
+    build:
+      context: ./StudentMicroservice
+      dockerfile: Dockerfile
+    container_name: student_2
+    hostname: student_ionescu  # <--- FORȚEAZĂ REȚEAUA DOCKER SĂ ÎL GĂSEASCĂ DUPĂ ACEST NUME
+    environment:
+      - DISCOVERY_HOST=discovery
+      - STUDENT_NAME=student_ionescu
+      - STUDENT_PORT=3002
+    volumes:
+      - ./question_database2.txt:/questions_database.txt
+    networks:
+      - ms-net
+    depends_on:
+      - discovery
+    restart: always
+
+  # 5. Studentul 3 (Vasilescu)
+  student_3:
+    build:
+      context: ./StudentMicroservice
+      dockerfile: Dockerfile
+    container_name: student_3
+    hostname: student_vasilescu  # <--- FORȚEAZĂ REȚEAUA DOCKER SĂ ÎL GĂSEASCĂ DUPĂ ACEST NUME
+    environment:
+      - DISCOVERY_HOST=discovery
+      - STUDENT_NAME=student_vasilescu
+      - STUDENT_PORT=3003
+    volumes:
+      - ./question_database3.txt:/questions_database.txt
+    networks:
+      - ms-net
+    depends_on:
+      - discovery
+    restart: always
+
+networks:
+  ms-net:
+    name: ms-net
+    driver: bridge

@@ -1,0 +1,97 @@
+version: '3.8'
+
+services:
+  censor:
+    build:
+      context: ./CensorMicroservice
+      dockerfile: Dockerfile
+    container_name: censor
+    ports:
+      - "1700:1700"
+    networks:
+      - ms-net
+    volumes:
+      - ./CensorMicroservice/dictionar.txt:/dictionar.txt
+    restart: always
+
+  # 1. Procesorul de Flux (Fostul MessageManager)
+  message_manager:
+    build:
+      context: ./MessageManagerMicroservice
+      dockerfile: Dockerfile
+    container_name: message_manager
+    ports:
+      - "1500:1500"
+    networks:
+      - ms-net
+    depends_on:
+      - censor
+    restart: always
+
+  # 2. Profesorul
+  teacher_microservice:
+    build:
+      context: ./TeacherMicroservice
+      dockerfile: Dockerfile
+    container_name: teacher_microservice
+    ports:
+      - "1600:1600"
+    environment:
+      - MESSAGE_MANAGER_HOST=message_manager
+    networks:
+      - ms-net
+    depends_on:
+      - message_manager
+    restart: always
+
+  # Studentul 1 - Știe doar întrebările din baza 1
+  student_1:
+    build:
+      context: ./StudentMicroservice
+      dockerfile: Dockerfile
+    container_name: student_1
+    environment:
+      - MESSAGE_MANAGER_HOST=message_manager
+    volumes:
+      - ./question_database1.txt:/questions_database.txt # Mapăm fișierul 1 ca fiind cel implicit în container
+    networks:
+      - ms-net
+    depends_on:
+      - message_manager
+    restart: always
+
+  # Studentul 2 - Știe doar întrebările din baza 2
+  student_2:
+    build:
+      context: ./StudentMicroservice
+      dockerfile: Dockerfile
+    container_name: student_2
+    environment:
+      - MESSAGE_MANAGER_HOST=message_manager
+    volumes:
+      - ./question_database2.txt:/questions_database.txt # Mapăm fișierul 2
+    networks:
+      - ms-net
+    depends_on:
+      - message_manager
+    restart: always
+
+  # Studentul 2 - Știe doar întrebările din baza 2
+  student_3:
+    build:
+      context: ./StudentMicroservice
+      dockerfile: Dockerfile
+    container_name: student_3
+    environment:
+      - MESSAGE_MANAGER_HOST=message_manager
+    volumes:
+      - ./question_database3.txt:/questions_database.txt # Mapăm fișierul 3
+    networks:
+      - ms-net
+    depends_on:
+      - message_manager
+    restart: always
+networks:
+  ms-net:
+    name: ms-net
+    driver: bridge

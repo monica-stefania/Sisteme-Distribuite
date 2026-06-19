@@ -1,0 +1,72 @@
+services:
+  heartbeat:
+    build:
+      context: .
+      dockerfile: HeartBeatMicroservice/src/Dockerfile
+    container_name: heartbeat
+    ports:
+      - "1800:1800"
+    volumes:
+      - ./history:/app/logs
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  master:
+    build:
+      context: .
+      dockerfile: MasterMicroservice/src/Dockerfile
+    container_name: master
+    ports:
+      - "1900:1900"
+    volumes:
+      - ./history:/app/logs
+
+  auctioneer:
+    build:
+      context: .
+      dockerfile: AuctioneerMicroservice/src/Dockerfile
+    container_name: auctioneer
+    ports:
+      - "1500:1500"
+    volumes:
+      - ./history:/app/logs
+    depends_on:
+      - master
+      - message-processor
+      - bidding-processor
+
+  message-processor:
+    build:
+      context: .
+      dockerfile: MessageProcessorMicroservice/src/Dockerfile
+    container_name: message-processor
+    ports:
+      - "1600:1600"
+    volumes:
+      - ./history:/app/logs
+    depends_on:
+      - master
+      - bidding-processor
+
+  bidding-processor:
+    build:
+      context: .
+      dockerfile: BiddingProcessorMicroservice/src/Dockerfile
+    container_name: bidding-processor
+    ports:
+      - "1700:1700"
+    volumes:
+      - ./history:/app/logs
+    depends_on:
+      - master
+
+  bidder:
+    build:
+      context: .
+      dockerfile: BidderMicroservice/src/Dockerfile
+    depends_on:
+      - auctioneer
+      - master
+    volumes:
+      - ./history:/app/logs
+
+

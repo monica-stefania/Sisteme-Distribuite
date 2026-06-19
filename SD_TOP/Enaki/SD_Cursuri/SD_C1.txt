@@ -1,0 +1,71 @@
+Un sistem distribuit e un sistem ale carui componente sunt localizate pe diferite computere legate intr-o retea si care comunica
+	si se coordoneaza prin trimiterea de mesaje unul altuia.
+Caracteristici:
+	- concurenta componentelor
+	- lipsa unui clock global
+	- esecul independent al componentelor
+Distributed control system: e un sistem de control pentru un proces compus din mai multe buclede control in care controllere
+	autonome sunt distribuite prin tot sistemul, dar nu exista un supervizor central de control
+Distributed database: o baza de date care e stocata in mai multe locatii fizice. Poate fi stocata pe mai multe calatoare in 
+	aceeasi locatie fizica sau poate fi imprastiata intr-o retea de calatoare interconectate. Sunt alcatuite din parti slab cuplate
+	care nu impart componente fizice.
+Un sistem de operare ia si pune in retea si transmite la aplicatia distribuita datele procesate.(forma primitiva)
+O aplicatie distribuita e o aplicatie software  care e stocata in principal in cloudsi care ruleaza pe mai multe sisteme simultan.
+	Sistemele ruleaza in aceeasi retea si comunica unele cu altele intr-un efort de a realiza un anumit task.
+O abordare ceva mai practica ar fi sa ai eventual servicii middleware care e un soft ce ofera functionalitati dincolo de cele
+	disponibile pe sistemul de operare. Face mai usor pentru developeri sa implementeze comunicare si I/O ca sa se poata concentra
+	pe scopul specific al aplicatiei lor.(le folosesti fiindca poti controla mai usor anumiti factori decat sa rescrii tu in SO)
+Analiza SWOT(Strengths, Weaknesses, Opportunities and Threats)
+S:
+	- costuri reduse(faptul ca poti folosi chestii de la alte firme, fara sa mai iei tu tot hardul, doar folosesti)
+	- modularitate si flexibilitate(in loc sa proiectezi aplicatii monolit, le poti imparti in module/servicii care pot fi extinse independent)
+	- fiabilitate si integritate(sistemul functioneaza fara defecte intr-un interval de timp si spatiu dat)
+	- performanta(poti lucra in paralel, si nu esti limitat de hard-ul de pe o singura masina)
+W:
+	- lipsa cunostintelor despre starea globala(de obicei serviciile sunt stateless)
+	- lipsa unui timp global(pot aparea intarzieri datorate lipsei de sincronizare a clock-urilor la nivel global)
+	- nedeterminismul(nu stii mereu cui se trimite)
+	- comunicatiile(trebuie ca conexiunea sa fie buna pentru a nu scadea viteza sistemului din cauza transmisiei datelor)
+	- securitatea(trebuie securitate buna ca sa nu se afle date confidentiale trimise prin retea)
+
+
+
+
+
+
+Servicii web(WS): o aplicatie modulara care poate fi descrisa, publicata, localizata si invocata pe web.
+	- fie un serviciu oferit de un dispozitiv altui dispozitiv, comunicand ambele prin www
+	- fie un server ce ruleaza pe un calator, asteapta request-uri si creeaza aplicatii web, care servesc la rezolvarea anumitor probleme
+	  prin intermediul web
+De obicei ai un API(contract) pe care-l accesezi si folosesti de acolo ce ai nevoie
+Poate fi descoperit de alte servicii si folosit.
+WS sunt invocate folosind mesaje Simple Object Acces Protocol(SOAP). Aceste mesaje sunt codate in XML si transmise cu HTTP. Serviciul invocat se
+	foloseste printr-un pattern de schimb(schema) de mesaje care e definit in WSDL(Web Service Description Language)
+Poti avea model sincron(cand clientul se conecteaza, primeste un raspuns SOAP. E tip request-response) sau asincron(nu-l intereseaza pe client
+	raspunsul. Trimite mesajul si serviciul il preia si trimite rezultatul cand e gata procesarea)
+	
+	
+	
+	
+
+REST(Representational State Transfer)
+	- arh software
+	- poate utiliza SOAP pentru mesaje
+	- utilizeaza URI pentru a expune logica de afaceri. Poti mapa mai multe operatii pe acelasi URI
+	- preia securitatea protocolului de transport utilizat
+	- accepta diverse formate(XML, JSON, HTML)
+SOAP(Simple Object Acces Protocol)
+	- protocol/set de standarde
+	- nu poate utiliza REST fiindca e protocol
+	- utilizeaza interfata serviciului(contractul) pentru a expune logica de afaceri
+	- defineste propriul standard de securitate
+	- lucreaza doar cu formatul XML
+
+
+
+
+JEE:
+	- multinivel, multistrat
+	- cadru pentru dezvoltare rapida a aplicatiilor
+	- instalarea implica hard heterogen(sisteme cu mai multe tipuri de procesor/nuclee)
+	

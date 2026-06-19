@@ -1,0 +1,403 @@
+SOA(Service Oriented Arhitecture)
+Avem:
+	- program software
+	- arhitectura tehnologica
+	- infrastructura tehnologica
+Fiecare tip de arhitectura are propriile specificatii
+Component arhitecture->
+->application arhitecture(in care grupezi mai multe componente)->
+->integration arhitecture(in care lipesti mai multe aplicatii)->
+->enterprise tehnology arhitecture(in care pui de toate + DB si sist legacy)
+
+
+
+RPC(remote procedure call) apelezi o procedura de pe alt calculator(de obicei printr-o retea) ca si cum ar exista local
+BPM(Business process modeling) e activitatea de reprezentare a proceselor unei intreprinderi astfel incat procesul curent sa poata fi analizat
+	imbunatatit si automatizat.
+EAI(Enterprise application integration) reprezinta folosirea soft-ului si a principiilor arhitecturale ale sistemelor de calatoare pentru a 
+	integra un set de aplicatii la nivel de intreprindere
+	
+
+
+Un serviciu are mai multe capabilitati(ce poate face serviciul respectiv)
+SWOT SOA
+S:
+	- reutilizarea serviciilor(trebuie sa aiba ROI(Return of Investment) mare, sa ia parte la mai multe lucruri decat cele pentru care au fost
+							   proiectate initial)
+	- usor de mentinut(sunt documentate si n-ar trebui sa fie greu de modificat)
+	- Independente de platforma(merg pe toate platformele(cam cum e JVM))
+	- Disponibilitate (ai nevoie sa apelezi un serviciu de la o anumita firma, nu conteaza ca e 1 noaptea sau 2 dupa amiaza, tot la fel merge)
+	- Fiabilitate (sistemul sa fie disponibil)
+	- Scalabilitate (serviciile sunt participanti activi la compozitii)
+
+
+
+Un serviciu poate fi pe rand, producator sau consumator. Cand e producator, proceseaza ceva si trimite mai departe pentru cine are nevoie, iar
+	cand e consumator, preia rezultatele de la altii si le foloseste.
+Compunerea serviciilor: se apeleaza unele pe altele pentru a indeplini o functie/scop mai mare. Putem avea:
+	- orchestrare: ai un serviciu coordonator, care apeleaza intr-o anumita ordine alte servicii
+	- coregrafie: serviciile se apeleaza unul pe altul(un fel de Chain of Responsability) pentru a obtine rezultatul dorit
+
+
+
+Un serviciu este slab cuplat prin faptul ca comunica prin mesaje, si serviciile din exterior stiu doar de contractul lui(care e interfata, adica
+	operatiile disponibile)
+Cele 4 tipuri comune de SOA:
+	- la nivel de serviciu
+	- la nivel de compozitie
+	- la nivel de inventar
+	- la nivel de intreprindere
+	
+	
+	
+Terminologie:
+	Design Characteristic: 
+		- o proprietate a unui program software sau Tehnology Arhitecture(TA) care rezulta din modul in care a fost proiectat
+		- poate fo orice calitate concreta, cum ar fi faptul ca programul e alcatuit din componente, ca functiile au granularitate fina sau aspra
+	Design Principle:
+		- practica acceptata de industrie care are un anumit scop
+		- paradigma SOA e compusa din principii de design care sunt aplicate impreua pt a atinge obiectivele orientarii pe serviciu
+	Design Pattern:
+		- o solutie demonstrata la o problema de design, documentata intr-un format consistent
+	Design Standard:
+		- conventii de design particularizate individual de organizatie ca sa livreze solutii in concordanta cu telurile de business specifice organizatiei
+	Service Orientation:
+		- paradigma de design pentru crearea unitatilor solutiei logice care sunt proiectate individual ca sa fie utilizate repetat si colectiv in
+			scopul realizarii unor obiective
+		- unitatile se numesc SERVICII
+	Serviciu:
+		- e o unitate logica asupra careia s-au aplicat intr-o masura semnificativa principiile proiectarii service-oriented
+	Service Capability:
+		- fiecare serviciu are propriul context functional distinct si e compus dintr-un set de functii numite capabilitati legate de context
+		- cerculetele alea din desenul serviciului
+		- nu influenteaza cum e implementat serviciul
+	Service Consumer:
+		- cand un program invoca si interactioneaza cu un serviciu se numeste service consumer
+		- termenul se refera la rolul temporar luat la runtime de un program atunci cand e angajat cu un serviciu pentru schimb de date
+	Service Provider:
+		- serviciul invocat de consumer
+	Service Composition:
+		- agregare de servicii compuse colectiv pentru a automatiza un anumit task/proces de business
+		- ca sa avem compozitie, e nevoie minim de 2 servicii participante si un initiator al compozitiei. Altfel e doar schimb
+	Service Inventory:
+		- colectie de servicii complementare, standardizate, independente si guvernate, aflata in limite care reprezinta o afacere sau un segment al afacerii
+		- cand ai mai multe inventare termenul devine domain service inventory
+		
+
+
+Principiile service oriented:
+1)Standardized Service Contract
+	Serviciile din acelasi inventory sunt in conformitate cu aceleasi standarde de design
+2)Service Loose Coupling
+	Contractele serviciilor impun cerinte de cuplare scazute pentru consumator si sunt la randul lor decuplate de mediul inconjurator
+3)Service Abstraction
+	Contractele serviciilor contin doar informatii esentiale si informatiile despre servicii sunt limitate doar la ce e publicat in contract
+4)Service Reusability
+	Serviciile contin si exprima logica agnostica(nu conteaza contextul in care sunt chemate) si pot fi considerate resurse enterprise reutilizabile
+5)Service Autonomy
+	Serviciile exercita un nivel ridicat de control asupra mediului de executie underlying la runtime
+6)Service Statelessness
+	Serviciile minimizeaza consumul de resurse prin amanarea managementului informatiilor despre stare cand e necesar
+7)Service Discoverability:
+	Serviciile sunt suplimentate cu date meta de comunicatie prin care pot fi descoperite si interpretate eficient(cum e docker, ai un registru si le iei de-acolo)
+8)Service Composability
+	Serviciile sunt participanti efectivi la compozitie, indiferent de marimea si complexitatea compozitiei
+
+
+
+Caracteristici de baza SOA:
+a)Business-driven:
+	- TA e aliniata cu arhitectura curenta de business. Contextul e apoi mentinut constant asa incat TA sa evolueze in tandem cu businessul de-a lungul timpului.
+	- TA se tot indeparteaza de Business pana in punctul in care trebuie gandita de la 0 si de aia trebuie sa le tii aproape
+b)Furnizor neutru:
+	- Modelul arhitectural nu e bazat strict pe o platforma furnizor, poti combina mai multe tehnologii, sa le inlocuiesti pe unele ca sa maximizezi realizarea 
+		necesitatilor afacerii in mod constant
+	- ai mai multa libertate la implementare
+c)Enterprise-centric:
+	- Scopul arhitecturii reprezinta un segment important al intreprinderii, permitand reutilizarea si compozitia serviciilor, permitand solutii orientate serviciu in 
+		favoarea celor traditionale
+	- nu iti imparti serviciile pentru anumite lucruri, le pui la dispozitie pentru toti din firma
+d)Composition-centric:
+	Arhitectura suporta mecanici de agregare repetata a serviciilor, permitand acomodarea schimbarilor constante prin asamblare agila a compozitiilor de servicii
+
+
+
+SOA Design Patterns:
+Inventory Boundary(identifica granitele inventarului)
+
+1)Enterprise Inventory
+	- Servicii pentru multiple solutii pot fi proiectate pentru livrare intr-un inventory arhitectural standardizat, la nivel de intreprindere unde pot fi recompuse repetat si liber
+	- recomandat pentru organizatii mici/medii
+2)Domain Inventory
+	- serviciile pot fi grupate in inventare de servicii specifice domeniului, fiecare putand fi guvernat, standardizat si detinut independent
+	- la intreprinderile mari nu mai merge 1) fiindca ar dura prea mult analiza
+	
+Inventory Structure(structura high-level si complexitatea generala a unui inventory e data si influenteaza nevoile pe care arhitectura trb sa le indeplineasca)
+
+3)Service Normalization
+	- inventarul trebuie proiectat cu accent pe alinierea limitelor serviciilor
+	- serviciile fiind normalizate se elimina riscul ca 2 servicii sa aiba limite functionale suprapuse
+4)Logic Centralization
+	- Accesul la functionalitatea reutilizabila e limitata la serviciile agnostice oficiale
+	- ca sa nu ai functionalitate redundanta
+5)Service Layers
+	- inventar structurat in 2 sau mai multe straturi logice, fiecare fiind responsabila pt a abstractiza logica pentru un tip functional comun
+	- minim 2 layere, unul cu logica agnostica(pentru mai multe scopuri), celalalt cu logica non-agnostica(pt un singur scop)
+
+Inventory Standardization(Standardele se stabilesc pt a asigura o baza comuna pentru interoperabilitatea intre servicii)
+
+6)Canonical Protocol
+	- arhitectura stabileste o singura tehnologie de comunicare ca mediu primar in care serviciile pot interactiona
+	- doar la comunicarea intre servicii, nu si in interiorul unui serviciu
+7)Canonical Schema
+	- modelele de date pentru seturi de informatii comune sunt standardizate de-a lungul contractelor in limitele inventarului
+	-schema e ce treci tu de exemplu intr-un fisier xsd(XML schema definition) ca sa ai acelasi format de date intre servicii
+
+Logical Inventory Layer(ai logica utilitara, agnostica si non-agnostica)
+
+8)Utility Abstraction
+	- un nivel de servicii dedicat procesarilor utilitare, ce ofera servicii utilitare pentru a fi folosite de alte servicii din inventar
+	- nu e logica de business, ci doar logica utilitara(de exemplu libraria matematica)
+9)Entity Abstraction
+	- un nivel de servicii business agnostice poate fi stabilit
+	- dedicat serviciilor ale caror context functional se bazeaza pe entitati existente de business
+	- separi serviciile agnostice de cele non-agnostice
+	- o faci doar daca nu se schimba des specificatiile
+10)Process Abstraction
+	- un nivel parinte de business dedicat
+	- stabilit pentru a suporta administrarea independenta si a face serviciile task(non-agnostice) potentiale resurse enterprise
+
+Inventory Centralization
+
+11)Process Centralization
+	- logica ce reprezinta numeroase procese de business poate fi livrata si administrata intr-o locatie centrala
+	- ai o platforma care orchestreaza toata logica de business
+12)Schema Centralization
+	- selecteaza scheme care exista ca parti fizice separate ale unui contract si sunt partajate intre mai multe contracte
+	- elimina schemele redundante
+	- ai WSDL(Web Service Description Language) care e validat de scheme
+13)Policy Centralization
+	- Politici globale sau de domeniu pot fi izolate si aplicate mai multor servicii
+	- elimini redundanta
+	- ariile adresate de politici: securitate, conditii de transfer, serie de proprietati QoS(Quality of Service)
+14)Rules Centralization
+	- Stocarea si administrarea regulilor de business se afla intr-o extensie arhitecturala dedicata de unde pot fi accesate si mentinute
+	- Poti crea un serviciu central pentru a se ocupa de crearea, modificarea, aplicarea si primirea regulilor de business
+	
+Inventory Implementation
+
+15)Dual Protocols
+	- arhitectura inventarului e proiectata sa suporte servicii bazate pe protocolul principal si secundar
+	- un singur protocol poate sa nu fie capabil sa acomodeze toate necesitatile serviciului, si de aia mai introduci unul
+	- trebuie folosita in moderare
+16)Canonical Resources
+	- Infrastructura si arhitectura pot fi echipate cu resurse comune si extensii care pot fi utilizate repetat de diferite servicii
+	- ex de resurse: DB, directoare, extensii de securitate
+17)State Repository
+	- date legate de stare pot fi scrise temporar si apoi sa fie luate dintr-un repo dedicat
+	- reduci consumul de memorie asociat cu retinerea informatiilor de stare
+18)Stateful Services
+	- Datele legate de stare sunt organizate si stocate de servicii stateful utilitare
+	- starea e impartita la mai multe servicii utilitare fiind mai usor de organizat
+19)Service Grid
+	- Datele de stare sunt intarziate catre o colectie de servicii stateful care formeaza un grid ce ofera scalabilitate, toleranta la esec
+		prin replicare a memoriei si redundanta suportand infrastructura
+	- eviti riscul de a pierde date in partile super folosite
+20)Inventory Endpoint
+	- capabilitatile relevante sunt abstractizate intr-un serviciu de capat care se comporta ca un punct de intrare oficial in inventar si e
+		dedicat unui set de consumeri externi
+	- oferi doar anumite functionalitati din inventar, nu acces la tot inventarul
+	- nu fac parte din inventar si nu participa la compozitii
+21)Cross-Domain Utility Layer
+	- un nivel utilitar comun poate fi stabilit, intinzandu-se intre 2 sau mai multe inventare de domeniu
+	- ai redundanta inutila la logica utilitara
+	- poti imparti in logica utilitara specifica domeniului, si logica utilitara inter-domeniu
+
+Inventory Governance
+
+22)Canonical Expression
+	- contracte standard folosind conventii de numire
+	- contractele pot exprima capabilitati similare in diferite moduri, si nu vrei asta
+23)Metadata Centralization
+	- metadatele serviciilor pot fi publicate central intr-un registru ce ofera un mijloc formal de a inregistra si descoperi serviciile(docker)
+24)Canonical Versioning
+	- regulile de versionare a contractelor si expresia informatiilor de versionare sunt standardizate in limitele inventarului
+	- poti avea versiuni de contracte diferite in inventar si asta cauzeaza probleme
+
+Service Identification
+
+25)Functional Decomposition
+	- poti sparge problema intr-un set de probleme mai mici si solutia la fel
+	- eviti aplicatiile monolit
+26)Service Encapsulation
+	- Logica solutiei e incapsulata de un serviciu care e pozitionat ca o resursa enterprise capabila de a functiona dincolo de limitele pentru 
+		care a fost conceput initial
+	- trebuie sa proiectezi pentru mai mult de un singur mediu pentru a nu fi limitat
+	
+Service Definition
+
+27)Agnostic Context
+	- Izoleaza logica care nu e specifica unui singur motiv, in servicii separate cu logica agnostica
+28)Non-Agnostic Context
+	- Logica non-agnostica potrivita pentru incapsularea serviciilor poate fi localizata in serviciul care e gazduit ca membru oficial al unui inventar
+	- pot fi controllere/initiatori ai compozitiilor
+29)Agnostic Capability:
+	- Serviciul agnostic e partitionat intr-un set de capabilitati bine definite care adreseaza preocupari comune care nu-s specifice niciunei probleme.
+		Prin analiza se rafineaza si mai mult
+
+Service Implementation
+
+30)Service Facade
+	- o componenta fatada e folosita pentru a abstractiza o parte din serviciile cu potential negativ de cuplare
+	- ajuta serviciul principal prin niste procesari suplimentare.
+31)Redundant implementation
+	- Serviciile reutilizabile pot fi livrate prin implementari redundante sau cu suport la erori
+	- eviti single point of failure
+32)Service Data Replication
+	- serviciile pot avea propriile DB cu replicare pentru datele partajate
+33)Partial State Deferral
+	- chiar daca serviciile trebuie sa ramana stateful, o parte din datele de stare pot fi intarziate temporar
+	- tii doar o parte din stare in memorie
+34)Partial Validation
+	- un consumer poate fi proiectat sa valideze doar partea relevanta a datelor
+35)UI Mediator
+	- Stabileste un mediator care e responsabil doar cu asigurarea interactiunii la timp si feedback de la UI si prezentare
+
+Service Security
+
+36)Exception Shielding
+	- exceptia unsafe e inlocuita cu una care e safe din proiectare si data la consumer
+37)Message Screeing
+	- serviciul e echipat sau suplementat cu rutine de ecranare care pp ca orice input e daunator pana se dovedeste contrariul
+38)Trusted subsystem
+	- serviciul e proiectat pentru a folosi credentiale proprii pentru autentificare si autorizare legata de resursele backend in numele consumerului
+39)Service Perimeter Guard
+	- un serviciu intermediat e stabilit ca perimetru al retelei locale ca un punct de securitate pentru orice consumer extern care trb sa interactioneze 
+		cu serviciile interne
+
+Service Contract Design
+
+40)Decoupled Contract
+	- contractul serviciului e fizic decuplat de implementare si pot varia independent
+41)Contract Centralization
+	- accesul la serviciu e limitat de contract, fortand consumerii sa evite cuplarea cu implementarea
+42)Contract Denormalization
+	- Contractele pot include o cantitate masurata de denormalizare, permitand mai multor capabilitati sa exprime redundant functionalitati de baza in
+		diverse moduri pentru diferite tipuri de consumeri
+43)Concurrent Contracts
+	- Mai multe contracte pentru acelasi serviciu, fiecare pentru un tip de consumer
+44)Validation Abstraction
+	- Validarea granulara si regulile pot fi abstractizate de contract, reducand granularitatea serviciului si crescand longevitatea contractului
+	- contractele cu multe constrangeri devin invalide cand se petrece o schimbare
+
+Legacy Encapsulation
+
+45)Legacy Wrapper
+	- un serviciu wrapper non-standard poate fi inlocuit sau impachetat intr-un serviciu standard care incapsuleaza si poate elimina detaliile tehnice
+		legacy din contract
+	- impachetezi sistemul legacy intr-un serviciu
+46)Multi-Channel Endpoint
+	- un serviciu intermediar e proiectat sa incapsuleze sistemele specifice canal si sa expuna un singur contract standard pt consumeri specifici canal multipli
+	- se refera cand proiectezi de exemplu pentru pc/telefon ca ai mai multe feluri de sist legacy, si vrei sa ai un singur serviciu care comunica cu toate device-urile
+47)File Gateway
+	- logica de procesare bidirectionala intre sistemele legacy si servicii ca sa poata comunica, fiindca nu se pot invoca unele pe altele
+
+Service Governance
+
+48)Compatible Change
+	- unele schimbari ale contractului pot fi compatibbile inapoi, evitand impactele negative ale consumatorilor
+49)Version Identification
+	- informatiile de versionare referitoare la schimbari compatibile si incompatibile pot fi exprimate ca parte a contractului, pentru motive de comunicare si intarire
+	- minor version nu afecteaza userii, major da
+50)Termination Notification
+	- Contractele pot fi proiectate sa exprime informatii de terminare pentru consumerii umani si programati
+	- "suportul pentru aceasta versiune se va termina incepand cu data..."
+51)Service Refactoring
+	- Contractul e pastrat pentru a mentine dependentele cu consumerul, dar logica serviciilor underlying e refacuta
+	- poti avea serviciul la v2 si contractul la v1
+52)Service Decomposition
+	- un serviciu se poate descompune in 2 sau mai multe servicii mai fine
+53)Proxy Capability
+	- contractul original e pastrat, chiar daca logica de dedesubt e separata, prin transformarea definitiei capabilitatilor intr-un proxy
+	- adica stie contractul ce sa apeleze din serviciu
+54)Decomposed Capability
+	- serviciile supuse riscului de a fi supuse descompunerilor ulterioare pot fi echipate cu o serie de capabilitati granulare care pot facilita mai usor descompunerea
+55)Distributed capability
+	- partea underlying a serviciului e distribuita, permitand implicit ca o capabilitate cu necesitati unice de procesare sa fie separata, in acelasi timp continuand sa
+		fie reprezentata de acelasi contract
+	- logica de capabilitate e in alta parte de obicei
+
+Capability Composition
+
+56)Capability Composition
+	- Cand logica necesara e in afara, capabilitatea din serviciu e proiectata sa compuna una sau mai multe capabilitati in alte servicii
+57)Capability Recomposition
+	- Capabilitatile serviciilor agnostice pot fi proiectate pentru a fi invocate repetat pentru a suporta mai multe compozitii care rezolva multiple probleme
+	- folosirea unui serv agnostic ca sa rezolvi o singura problema, nu creste gradul de reutilizare
+	
+Service Messaging
+
+58)Service Messaging
+	- serviciile pot fi proiectate sa interactioneze prin mesaje care reduce conexiunile persistente si necesitatile de cuplare
+59)Messaging Metadata
+	- continutul mesajelor poate fi suplimentat cu metadate specifice actiunii care sunt interpretate si procesate separat la runtime
+60)Service Agent
+	- service agents pot fi proiectati sa raspunda automat unor conditii predefinite fara invocarea printr-un contract
+	- event driven
+61)Intermediate Routing
+	- caile mesajelor pot fi determinate dinamic prin logica intermediara de rutare
+62)State messaging
+	- in loc sa retii in memorie, stochezi temporar in mesaj
+63)Sevice Callback
+	- un serviciu poate necesita ca consumerii sa comunice asincron cu el si sa ofere o adresa callback unde serviciul sa poata trimite raspuns la mesaje
+64)Service Instance Routing
+	- serviciile ofera un id de instanta impreuna cu informatii de destinatie intr-un format standard care fereste consumatorul ce a avea sa recurga la logica custom
+	- ca sa mentii starea in caz ca ai nevoie de un schimb de mesaje
+65)Async Queuing
+	- un serviciu poate schimba mesaje cu consumerii printr-un buffer intermediar, permitand serviciilor sa proceseze mesajele independent prin ramanerea decuplat temporar
+66)Reliable Messaging
+	- un mecanism de incredere intermediar e introdus in arhitectura inventarului, asigurand ca livrarea mesajelor e garantata
+	- pentru medii unreliable
+67)Event Driven Messaging
+	- consumerul se stabileste ca subscriber al serviciului. Serviciul notifica automat eventurile relevante la toti subscriberii
+
+Composition Implementation
+
+68)Agnostic Sub-Controller
+	- logica reutilizabila agnostica inter-serviciu e abstractizata sau e facuta disponibila printr-o capabilitate agnostica de sub-controller, permitand subsetului
+		sa fie recompus independent
+69)Composition Autonomy
+	- Toti participantii la compozitie pot fi izolati sa maximizeze autonomia compozitiei ca intreg
+70)Atomic Service Transaction
+	- Actiunile de runtime pot fi impachetate intr-o tranzitie cu capacitati de rollback care reseteaza toate actiunile si schimbarile daca parintele nu poate fi 
+		completat cu succes
+71)Compenstating Service Transaction
+	- Rutine de compensare sunt introduse, permitand exceptiilor runtime sa fie rezervate cu lock redus pe resurse si memorie redusa
+	- poti consuma prea multe resurse folosind 70)
+
+Service Interaction Security
+
+72)Data Confidentiality
+	- mesajele sunt criptate
+73)Data Origin Authentification
+	- un mesaj poate fi semnat digital si se poate verifica originea si daca nu a fost alterat pe parcurs
+74)Direct Authentification
+	- trebuie ca utilizatorii sa dea credentiale in mesaj ca sa foloseasca serviciul
+75)Brokered Authentification
+	- Un broker de autentificare ca un depozit centralizat de identitati, isi asuma responsabilitatea pentru autentificarea userului si emiterea unui token pe care
+		consumerul il poate folosi sa acceseze serviciul
+
+Transformation Patterns
+
+76)Data Model Transformation
+	- O tehnologie de transformare a datelor poate fi incorporata sa converteasca datele intre scheme diferite
+77)Data Format Transformation
+	- Logica de transformare intermediara a formatului datelor trebuie introdusa ca sa traduci dinamic dintr-un limbaj in altul
+78)Protocol Bridging
+	- Logica de bridge e introdusa pentru a permite comunicarea intre diferite protocoale prin convertirea dinamica a unui protocol in altul
+
+
+
+Enterprise service bus(ESB)implementeaza un sistem de comunicare intre aplicatii soft in SOA
+Dirijarea dinamica se refera la trimiterea spre anumite servicii in functie de continutul mesajului.
+Filtrul e fix filtrarea mesajelor din Design Patterns

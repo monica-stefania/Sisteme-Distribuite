@@ -1,0 +1,37 @@
+Reactive programming: paradigma declarativa care se ocupa de fluxuri dee date si cu propagarea schimbarilor.
+Eveniment:
+	- e atomic
+	- inrudire
+	- comportament
+Partea de comportament e cea mai importanta in proiectare si utilizare
+Abordari arhitecturale
+	- Event-command pattern: serviciul stie endpoint-urile si API-urile celorlalte servicii si le apeleaza
+	- Event-first pattern: fiecare serviciu asculta pentru evenimente si emite zero sau mai multe eventuri dupa ce reactioneaza la 
+		ce a primit
+Caracteristici EDA(Event Driven Arhitecture)
+	- Comunicare broadcast
+	- reactie eficienta
+	- evenimente cu granularitate mica
+	- ontologie
+	- procesare evenimente complexe
+
+
+
+Nivelul eveniment
+	- primeste evenimente de la surse
+	- converteste intr-un format comun respectivele evenimente
+Nivelul comunicare:
+	- canal de evenimente
+	- entitate + protocol folosit pentru transportul evenimentelor
+Modele de comunicare:
+	- publish/subscribe
+	- publish/subscribe pe topica
+	- punct la punct
+	- request/reply
+	- store and forward
+	- pipeline
+Procesare eveniment simplu:
+	- ai un generator al eventului
+	- e trimis mai departe printr-un channel
+	- este procesat evenimentul
+	- si trimis mai departe

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expenses</title>
+</head>
+<body>
+    <h1>My Expenses</h1>
+
+    <table>
+        <tr>
+                <th> ID </th>
+                <th> Description </th>
+                <th> Amount (RON) </th>
+                <th> Category </th>
+                <th> Date </th>
+                <th> Actions </th>
+        </tr>
+
+        {% for e in expenses %}
+       <tr>
+                <td>{{ e.id }}</td>
+                <td>{{ e.description }}</td>
+                <td>{{ "%.2f"|format(e.amount) }}</td>
+                <td>{{ e.category }}</td>
+                <td>{{ e.date }}</td>
+                <td>
+                    <a href="/expenses/edit/{{ e.id }}">Edit</a>
+                    <a href="/expenses/delete/{{ e.id }}"
+                       onclick="return confirm('Do you delete the expense?')">Delete</a>
+                </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/expenses/add">+ Add new expense </a>
+</body>
+</html>

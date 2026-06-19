@@ -1,0 +1,140 @@
+Cloud computing: disponibilitate la cerere a resurselor computerelor, in special a stocarii datelor(cloud storage) si putere computationala
+	fara management direct si activ din partea userului.
+Norii pot fi limitati la o singura organizatie(enterprise clouds) sau disponibile la mai multe(public clouds)
+E la intersectia a 4 domenii
+	- Hardware
+		1) Hardware virtualization: e virtualizarea computerelor ca platforme complete hardware
+			Masinile virtuale de exemplu care sunt programe ce simuleaza o intreaga platforma hardware cu componente etc.
+		2) Multi-core chips: un procesor integrat cu 2 sau mai multe utiati de procesare separate numite core-uri/nuclee fiecare citind si 
+			executand instructiunile programelor ca si cum computerul ar avea mai multe procesoare.
+	- Internet Tehnologies
+		1) SOA
+		2) Web 2.0
+		3) Web Services
+		4) Mashups: o pagina/aplicatie web care foloseste continut din mai multe surse pentru a crea un nou serviciu afisat intr-o singura pagina web
+			De exemplu poti combina pozele tale de pe site cu un Google map ca sa ai o mapa custom.
+	- Automation(nu e specificata in curs, doar i-am pus eu nume)
+		1) Automatic Computing: caracteristicile de manageriere propriee a unor resurse distribuite de computing, adaptandu-se la schimbari imprevizibile
+			ascunzand complexitatea intrinseca operatorilor si userilor
+		2) Data Center Automation: proces prin care rutinele de workflow si procesele unui data center sunt executate si manageriate fara interventia umana
+	- Distributed Computing
+		1) Utility Computing: un model de aprovizionare cu servicii in care un provider face resursele de computing si infrastructura disponibila clientului
+			dupa necesitati si il taxeaza in functie de consum.
+		2) Grid Computing: folosirea la scara larga a resurselor computerelor pentru a atinge un tel comul. Nodurile grid-ului executa o aplicatie/task diferit.
+
+
+
+Traditional vs IaaS(Infrastructure as a Service) vs PaaS(Platform as a Service) vs SaaS(Software as a Service)
+In mod normal trebuie sa manageriezi 
+a)aplicatiile
+b)data
+c)runtime
+d)middleware
+e)OS
+f)Virtualizarea
+g)Serverele
+h)Stocarea
+i)Networking
+Cu IaaS, producatorul manageriaza de la OS in jos, si tu de la OS in sus(mult mai convenabil)
+Cu PaaS, producatorul manageriaza de la runtime in jos, tu doar aplicatiile si data
+Cu Saas Se ocupa provider-ul de tot
+
+Alta definitie Cloud Computing:	model de plata functie de utilizare care permite accesul pe baza de retea, la cerere, convenabil, disponibil, la o grupare de 
+	resurse de calcul configurabile(retele, servere, stocare, aplicatii)
+Aceste servicii pot fi oferite rapid, cu efort de administrare minimal sau cu interactiune minimala cu furnizorul de serviciu.
+
+
+
+Caracteristici de baza:
+	- auto-service la cerere
+	- acces oriunde la retea
+	- grupare resurse independente de locatie
+	- plata dupa cat consumi
+Tipuri de nori:
+	- public external(public clouds)
+	- private internal(enterprise clouds)
+
+
+
+FaaS(Functions as a Service)
+E ca PaaS dar n-ai nevoie de un server care sa ruleze in spate mereu. Ai si mecanisme de caching si ovrall iesi mai ieftin
+Exemple:
+	- API Gateway
+	- Funciton Watchdog
+	- Prometheus
+	- Swarm
+	- Kubernetes
+	- docker
+XaaS(Orice ca Serviciu)
+	- Storage
+	- DB
+	- Communication
+	- Network
+	- Monitoring
+	- Testing
+	- HPC
+	- Human
+	- Process
+	- Information
+	- Identity
+	- Application
+	- Integration
+	- Governance
+	- Security
+	- Backup
+
+
+
+Servicii Amazon
+	- Elastic Compute Cloud
+	- Simple Storage Service
+	- Simple Queue Service
+	- SimpleDB
+	- CloudFront
+Windows Azure
+	- Live Services
+	- .NET Services
+	- SQL Services
+	- SharePoint Services
+	- Microsoft Dynamics CRM Services
+
+
+
+Terminologie si concepte specifice norilor
+	- Tier 4 data center:
+		99.995% uptime/an
+		2N+1 infrastructura full redundanta
+		96 ore protectie impotriva penelor de curent
+		26.3 minute de cadere anuala
+	- Hiperconvergenta
+		Reteaua de stocare si abstractizarile soft sunt implementate virtual in software nu in hardware
+	- Platforma hiperconvergenta
+
+
+
+Alcatuit din:
+	- Presentation Tier
+		1)Load Balancer
+		2)Elastic Load Balancer(care e o coada)
+		3)Presentation Application Component care comunica cu Business Logic Tier
+			- Stateless Component
+			- UI Component
+	- Business Logic Tier
+		1)Elastic Queue
+		2)Business Logic Application Component
+			- Stateless Component
+			- Processing Component
+	- Data Tier
+		1)Elastic Queue
+		2)Data Access Component
+		3)Storage Offerings
+		
+		
+
+Tipuri de scalari:
+	- scale-up/vertical Scaling
+		cererile vin printr-un front-end, sunt preluate de un Load Balancer si apoi serverul hosteaza 
+			o copie completa a aplicatiei
+		Scalare prin cresterea resurselor(CPU, RAM) a fiecarui host
+	- scale-out/Horizontal Scaling
+		scalare prin adaugarea mai multor servere

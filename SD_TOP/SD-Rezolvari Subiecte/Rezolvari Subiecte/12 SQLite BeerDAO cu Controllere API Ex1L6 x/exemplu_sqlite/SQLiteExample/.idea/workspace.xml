@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2bb1bcad-d323-4ff6-8904-bebfc48538a3" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1ZTfQZ0maz5WBTy2NrYFXJ9xtDv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.sd.laborator.microservices" />
+      <recent name="com.sd.laborator" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.sd.laborator.microservices" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2bb1bcad-d323-4ff6-8904-bebfc48538a3" name="Default Changelist" comment="" />
+      <created>1584867988419</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584867988419</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="990" y="324" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1597509559514">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="990" y="324" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1597509559514" />
+    <state width="1874" height="331" key="GridCell.Tab.0.bottom" timestamp="1597679188925">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1874" height="331" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1597679188925" />
+    <state width="1874" height="331" key="GridCell.Tab.0.center" timestamp="1597679188920">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1874" height="331" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1597679188920" />
+    <state width="1874" height="331" key="GridCell.Tab.0.left" timestamp="1597679188919">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1874" height="331" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1597679188919" />
+    <state width="1874" height="331" key="GridCell.Tab.0.right" timestamp="1597679188921">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1874" height="331" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1597679188921" />
+    <state x="766" y="211" width="924" height="691" key="Maven.ArtifactSearchDialog" timestamp="1597509872677">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="766" y="211" width="924" height="691" key="Maven.ArtifactSearchDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1597509872677" />
+  </component>
+</project>

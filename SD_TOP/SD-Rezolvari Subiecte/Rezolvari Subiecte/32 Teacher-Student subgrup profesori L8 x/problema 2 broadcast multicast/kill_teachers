@@ -1,0 +1,8 @@
+#!usr/bin/env bash
+
+fuser -k 1520/tcp &
+fuser -k 1521/tcp &
+fuser -k 1522/tcp
+
+
+

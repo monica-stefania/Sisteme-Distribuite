@@ -1,0 +1,13 @@
+Utilizand functii serverless sa se implementeze automatul de mai jos: **imagine cu 5 stari**
+Fiecare stare este gestionata de o functie serverless iar datele vin dintr-o coada pe care o verifica toate. Pentru introducerea datelor in cealalta parte a cozii va fi un serviciu REST care le preia de la utilizator si le pune in coada.
+
+
+Mentiuni:
+Nu am poza cu starile, am facut eu un automat cum faceam al PL cu 3 stari (daca e altfel de automat e clara treaba...). Am folosit un controller REST de la Micronaut, astfel apelurile de functii serverless fiind declansate de cereri HTTP de tip POST la "http://localhost:8080/". 
+Pentru testare introduceti in terminal (cu aplicatia pornita):
+curl --location --request POST 'http://localhost:8080/' --header 'Content-Type: application/json' --data-raw '{"input":0}'
+
+Altele:
+Amazon Web Services: "You are charged based on the number of requests for your functions and the duration it takes for your code to execute."
+Cum naiba sa citesca functiile serverless (si inca in acelasi timp) din coada? Se presupune ca acele functii sunt ca cele pe care le-am facut eu sau cele din laborator, nu din astea de tipul "while(true){...}", nu cred ca ai macar voie sa folosesti functii de genul in realitate. Mai mult, nu am facut la laborator cum sa declansezi executia unei functii serverless la sosirea unui mesaj intr-o coada (de exemplu RabbitMq). Asta ar presupune un altfel de controller (cum e Component cu functii adnotate cu @RabbitListener la Spring in loc de controller). Ar trebui cumva sa gasesc acel declansator magic de functii serverless si sa folosesc cumva ceva librarie RabbitMq (si nu aia de la Spring...).
+Cred ca totusi ar fi de trecere ce am facut... Partea buna e ca dureaza putin sa faci asa ceva, sunt mici modificari si putine linii noi de cod.

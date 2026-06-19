@@ -1,0 +1,1 @@
+echo '{"xml": "covid"}' | java -jar target/consumer-xml-0.1.jar

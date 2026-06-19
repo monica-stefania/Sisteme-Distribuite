@@ -1,0 +1,153 @@
+
+Spring e format din
+1) Core Container:
+	- a) Beans
+	- b) Core
+	- c) Context
+	- d) SpEL(Spring expression Language)
+2) AOP
+3) Aspects
+4) Instrumentation
+5) Messaging
+6) Test(pentru testare aplicatii)
+7) WEB(MVC/REMOTING)
+	- a)WEB
+	- b)Web Socket
+	- c)Servlet
+	- d)Portlet
+8) Data access
+	- a)Transactions
+	- b) OXM(Object XML Mapping)
+	- c) ORM(Object Relational Mapping)
+	- d) JMS(Java Messaging Service)
+	- e) JDBC(Java DB conectivity)
+
+
+
+1)a)Beans
+Spring se foloseste de Inversion of Control(IoC) care se mai numeste si dependency injection care e un proces unde obiectele isi definesc
+	dependentele(adica celelalte obiecte cu care lucreaza) doar prin argumente la constructor/argumente la o metoda factory(sau proprietatile
+	care sunt setate pe instanta unui obiect dupa ce e construit/returnat de factory. Containerul injecteaza dependentele respective cand
+	creeaza BEAN-ul. Nu mai controleaza bean-ul instantierea si localizarea ci containerul in sine.
+Deci un bean e creat, asamblat si manageriat de IoC container.
+Ioc se mai poate defini ca procesul in care un obiect doar isi defineste dependentele fara a le crea.
+Trebuie doar sa configurezi cum trebuie IoC si nu te mai doare capul.
+Acele configuratii sunt defapt alea cu @ de deasupra claselor si ii zici cum sa instantieze, configureze si asambleze obietele in aplicatie.
+Beanurile incep cu litera mica si sunt camelCase
+Poti avea Injection de 2 tipuri:
+	- constructor based: class SimpleMoviePlaylist(private val movieFinder: MovieFinder), fara nicio adnotare speciala
+	- setter-Based: constructorul e fara argumente(dar poate avea si din alea), iar containerul va apela metode de set, pentru membrii clasei
+					(la kotlin poti pune doar lateinit var movieFinder: MovieFinder)
+
+1)b)Cuprinde IoC, AOP si altele
+
+
+
+1)c)Context
+Reprezinta containerele IoC
+
+
+
+1)d)E un limbaj ce permite interogarea si manipularea obiectelor la runtime.
+Functionalitati:
+	- expresii literale
+	- boolean si operatori relationali
+	- regex
+	- referinte la beanuri
+	- selectie de colectii
+Il folosesti de obieci pentru parsari
+Exemplu:
+ExpressionParser parser = new SpelExpressionParser();
+Expression exp = parser.parseExpression("new String('hello world').toUpperCase()");
+String message = exp.getValue(String.class);
+	
+	
+	
+	
+2)AOP(Aspect Oriented Programming)
+Completeaza OOP-ul si ofera alt mod de a gandi structura unui program. Unitatea fundamentala la OOP e clasa iar la AOP e aspectul. E declarativ.
+De exemplu o functie ar putea suna cam asa: "da log la toate apelurile functiilor ale caror nume incep cu set"
+E pentru tanzactii, securitate, logging etc
+
+
+4)Instrumentation
+Iti permite sa adaugi cod binar la clasele java existente si compilate ca sa poti monitoriza performana, diagnostica erorile etc. De obicei se
+	realizeaza prin logging.
+
+
+
+5)Messaging
+Lucrezi cu servicii care comunica prin mesaje pentru a fi slab cuplate. Iti poti alege ce fel de provider de mesaje vrei(JMS,RabbitMQ,Kafka)
+	pui dependentele necesare cu Maven/Gradle, si apoi inveti cum se utilizeaza fiecare adnotare si cum trimiti/primesti mesaje.
+
+
+
+7)a)MVC
+In spring request-urile HTTP sunt prelucrate de un controller(la care ii pui adnotatia @Controller)
+@Controller
+public class GreetingController {
+	@GetMapping("/greeting")
+	public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+		model.addAttribute("name", name);
+		return "greeting";
+	}
+}
+@GetMapping spune ca ai de a face cu o cerere tip get
+@RequestParam leaga valoarea din query-ul din URL de variabila din program
+Dupa dai update la model si intorci rezultatul la view care este browser-ul.
+
+
+
+7)b)WebSocket
+Lucrezi cu mesaje
+@Controller
+public class GreetingController {
+  @MessageMapping("/hello")
+  @SendTo("/topic/greetings")
+  public Greeting greeting(HelloMessage message) throws Exception {
+    Thread.sleep(1000); // simulated delay
+    return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
+  }
+}
+Daca se trimit mesaje la /hello, se apeleaza metoda greeting care trimite ce proceseaza din mesaj la /topic/greetings
+
+
+
+7)c)Servlets
+Servlet e un obiect care primeste request-uri si da raspunsuri pe baza lor
+
+
+
+7)d)Portlets
+E ca un servlet, doar ca daca faci acelasi request de 100 de ori(dai refresh la pagina) se face o singura procesare, 
+	si rezultatul e randat de 100 de ori la fel. Se mai proceseaza doar cand se produc schimbari.La servlet se 
+	proceseaza de fiecare data.
+	
+
+
+8)a)Transactions
+O abstractizare consistenta pentru tranzactii.
+
+
+
+8)b)OXM
+Reprezinta procesul de conversie al unui XML in obiect si invers. Se mai cheama XML Serialization.
+
+
+
+8)c)ORM
+Conversia datelor intre tipuri de sisteme incompatibile folosind limbaje OOP(Java/Kotlin la Spring)
+
+
+
+Ai foarte multa flexibilitate, poti face diverse straturi cu parti care nu depind de spring(slide 11)
+Stiva spring:
+	- Spring MVC
+	- Service Manager
+	- DAO
+	- Hibernate(pentru DB)
+	- DB
+Si totul e protejat folosind securitatea Spring
+
+
+

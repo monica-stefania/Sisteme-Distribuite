@@ -1,0 +1,19 @@
+Pornind de la exemplul de proiectare și implementare a unei aplicații
+care primește informații meteo (adică utilizând și serviciile de acolo
+eventual cu modificări) să se realizeze următoarele:
+
+- să se proiecteze și să se implementeze un serviciu care va scrie
+într-un fișier (de orice format la alegere) informațiile recepționate.
+
+- să se aplice modelul de proiectare de tip filtru și a celui de tip
+dirijor în proiectarea și implementarea unui serviciu care extrage din
+fluxul de date informațiile legate de numelui orașului, temperatura
+minimă și maximă (utilizând serviciul anterior) și le va scrie în
+fișiere cu acest nume.
+
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului.
+Se va utiliza înlănțuirea și respectarea principiilor SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.

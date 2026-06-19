@@ -1,0 +1,143 @@
+Arhitecturi bazate pe tratare de evenimente
+Avantaje:
+	- nu e nevoie de mapare relationala a obiectelor
+	- cu fiecare schimbare externa capturata ca eveniment, starea curenta poate fi repetata(pur si simplu repeti evenimentele, ca la pattern-ul Command)
+	- asigurarea persistentei se face fara modificari
+	- Deci, nu mai ai nevoie de un SGBD relational
+	
+	
+
+Monolit(o singura unitate)
+	- vin request-urile printr-un frontend layer
+	- se trec printr-un load-balancing layer
+	- si ai servere care hosteaza copii complete ale aplicatiei
+	- fiecare copie contine toate feature-urile si functiile pe care le poate oferi aplicatia, fie ca le folosesti fie ca nu
+SOA(granularitate aspra)
+	- dupa monolit a aparut SOA, care a impartit in servicii
+	- incapsulezi monolitii in servicii wrapper non standard
+	- integrezi codul vechi in noul sistem ce utilizeaza SOA
+Microservicii(granularitate fina)
+
+
+
+Design Patterns Microservicii
+a)Decomposition Patterns
+
+1)Decompose by Business Capability
+	- poti descompune dupa capabilitatile de business(ceva ce un business face ca sa produca o valoare)
+2)Decompose by subdomain
+	- ai clase care nu-s usor de descompus si au elemente comune(Order Management, Order Taking, Order Delivery, etc)
+	- folosesti subdomenii si bounded contexts pentru a rezolva problema
+	- fiecare subdomeniu va avea un model si un scop care se va numi bounded context
+	- fiecare microserviciu va fi livrat cu contextul bounded
+3)Strangler
+	- tot faci call-uri de la microserviciu la monolit si invers pentru fiecare domeniu.
+	- un serviciu poate fi impartit in diferite domenii si hostat ca servicii separate.
+	- ideea e sa o faci un domeniu la un moment dat.
+	- asta creaza doua aplicatii separate care lucreaza cot la cot in acelasi spatiu URI.
+	- noua aplicatie inlocuieste treptat vechiul monolit si la un moment dat poti inchide monolitul definitiv
+
+
+
+b)Integration Patterns
+
+4)API Gateway
+	- singurul punct de intrare pentru fiecare apel de microserviciu
+	- poate functiona ca un proxy si sa te directioneze la microserviciul potrivit, abstractizand detaliile producatorului
+	- poate grupa un request la mai multe servicii si sa trimiti un raspuns grupat
+	- poti avea mai multe API-uri pentru diferiti clienti
+	- Poti converti un protocol in alt protocol(actionezi pe post de protocol adapter)
+	- poate lua responsabilitatea de autorizare/autentificare de la microserviciu
+5)Aggregator
+	- spune cum putem grupa datele de la diferite servicii si sa trimitem un raspuns final consumerului
+	- se poate face in 2 moduri: un microserviciu composite care face apeluri la microserviciile necesare, consolideaza
+		datele si le transforma inainte de a le trimite inapoi(adica orchestrarea de la SOA, eventual un adapter)
+	- API Gateway poate face request-uri la mai multe microservicii si sa uneasca datele inainte de a le trimite la consumer
+	- daca ai logica de business mergi pe prima varianta
+6)Client-Side UI Composition
+	- cu microserviciile, UI-ul trebuie sa fie proiectat ca un schelet cu mai multe sectiuni per ecran/pagina
+	- fiecare sectiune face apel la un microserviciu backend ca sa-si ia datele.
+	- popular la Single Page Applications
+
+
+
+c)Database Patterns
+
+7)Database per Service
+	- ai o db per microserviciu
+	- privata si accesibila doar din microserviciu
+8)Shared Database per Service
+	- aplicata doar la brownfield(aplicatii in care ai si monolit)
+	- ai 2-3 microservicii care impart o db
+9)Command Query Responsability Segregation(CQRS)
+	- cand fiecare e cu db lui, query-urile care necesita date de la mai multe microservicii nu pot fi facute
+	- solutia este sa imparti aplicatia in 2 parti: comanda si querry.
+	- comanda se ocupa de CUD(Create Update Delete)
+	- partea de query face query-uri prin view-uri materializate
+	- folosit in combinatie cu pattern-ul de event sourcing unde creeezi eventuri pt fiecare schimbare a datelor.
+	- view-urile materializate sunt tinute la curent prin abonarea la streamul de eventuri.
+	- sau faci o replica read-only a bazelor de date unite
+10)Saga
+	- nu poti folosi tranzactii ACID daca-s in DB diferite
+	- un saga e un porces high-level de business care e fosrmat din mai multe sub-request-uri in care fiecare 
+		face update intr-un singur serviciu.
+	- fiecare request are un request compensatoriu care e executat cand request-ul esueaza
+	- ai 2 moduri: coregrafie cand nu ai coordonator, fiecare serviciu produce si asculta eventurile altui serviciu si decide
+		daca o actiune trebuie luata sau nu
+	- orchestrare cand un obiect ia responsabilitatea pentru decizie si dirijeaza logica de business
+11)API Composer
+	- cum implementezi query-uri care au nevoie de join de la mai multe microservicii
+	- faci un serviciu care face query la fiecare serviciu si da join la rezultate
+12)Domain Event
+	- cum poate emite un serviciu evenimente cand isi da update
+	- organizeaza logic de business ca colectii care emit eventuri cand sunt create/updatate
+
+
+
+d)Observability Patterns
+
+13)Log Aggregation
+	- Ai un serviciu de logging pentru toata aplicatia
+14)Performance Metrics
+	- un serviciu de metrica care colecteaza statistici
+	- ai 2 moduri: push(serviciul ofera metrici serviciului de metrica) si pull(serviciul de metrica ia metrici de la serviciu)
+15)Distributed Tracing
+	- cum urmaresti un request prin toate microserviciile apelate ca sa-l rezolvi?
+	- un serviciu
+		- asigneaza la fiecare request extern un id unic
+		- da id-ul la toate serviciile
+		- include id-ul in toate log-urile
+		- inregistreaza informatia(start/stop time) despre request-uri si operatiile efectuate
+16)Health Check
+	- cand un serviciu ruleaza dar nu e capabil sa se ocupe de tranzactie
+	- fiecare serviciu trb sa aiba un endpoint care poate fi folosit ca sa vezi sanatatea aplicatiei
+	- e pentru load-balance
+
+
+
+e)Cross-Cutting Concern Patterns
+
+17)External Configuration
+	- cum eviti schimbarile in cod din cauza schimbarilor de configuratie?
+	- externalizezi toate configuratiile cu tot cu URL-urile endpoint si credentialele. Aplicatia ar trebui sa le incarce la start
+		sau in timpul executiei
+	- le poti folosi apoi ca proprietati de environment de exemplu
+18)Service Discovery Pattern
+	- creezi un serviciu registru care sa mentina metadatele fiecarui serviciu producer.
+	- o instanta a serviciului trebuie inregistrata in registru cand e pornita si sa se delogheze cand e oprita.
+	- consumerul face query la registru ca sa afle locatia serviciului.
+	- ai client-side si server-side descovery
+19)Circuit Breaker
+	- cand apelezi servicii din alte servicii e posibil ca unul sa fie down si sa ai erori in cascada. Dupa un anumit numar de erori,
+		serviciul va da pentru o perioada prestabilita fail instant
+	- dupa ce expira time-out-ul, intri in perioada de test, daca dupa un nr de request-uri totul e bine se revine la normal, daca nu
+		cade iar tot pt timeout
+20)Blue-Green Deployment
+	- rulezi doua instante identice de medii de productie, blue si green. Green e instanta live iar blue e noua versiune a aplicatiei
+	- in orice moment doar un mediu e live si serveste toate cererile.
+
+
+
+f)Altele
+21)Bulkhead
+	-

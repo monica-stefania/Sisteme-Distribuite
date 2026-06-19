@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cheltuieli</title>
+</head>
+<body>
+	<div>
+		Mama are: <span id="bani_mama">{{bani_mama}}</span> lei
+		<br/>
+		<form action="cheltuie" method="post">
+			<input type="hidden" name="who" value="mama"/>
+			<input type="number" name="amount" min="0"/>
+			<button type="Submit">Cheltuie</button>
+		</form>
+		<form action="depune" method="post">
+			<input type="hidden" name="who" value="mama"/>
+			<input type="number" name="amount" min="0"/>
+			<button type="Submit">Depunde</button>
+		</form>
+	</div>
+	<div>
+		Tata are: <span id="bani_tata">{{bani_tata}}</span> lei
+		<br/>
+		<form action="cheltuie" method="post">
+			<input type="hidden" name="who" value="tata"/>
+			<input type="number" name="amount" min="0"/>
+			<button type="Submit">Cheltuie</button>
+		</form>
+		<form action="depune" method="post">
+			<input type="hidden" name="who" value="tata"/>
+			<input type="number" name="amount" min="0"/>
+			<button type="Submit">Depunde</button>
+		</form>
+	</div>
+	<div>
+		Copil are: <span id="bani_copil">{{bani_copil}}</span> lei
+		<br/>
+		<form action="cheltuie" method="post">
+			<input type="hidden" name="who" value="copil"/>
+			<input type="number" name="amount" min="0"/>
+			<button type="Submit">Cheltuie</button>
+		</form>
+		<form action="depune" method="post">
+			<input type="hidden" name="who" value="copil"/>
+			<input type="number" name="amount" min="0"/>
+			<button type="Submit">Depunde</button>
+		</form>
+	</div>
+</body>
+</html>

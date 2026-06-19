@@ -1,0 +1,471 @@
+*****Să se creeze în Python un server TCP care să facă o cerere pentru
+simbolurile companiilor cu acțiuni (vezi documentația:
+https://finnhub.io/docs/api#stock-symbols) și folosind aceste
+simboluri precum și API-ul de știri despre o companie
+(https://finnhub.io/docs/api#company-news) să trimită știrile din ziua
+curentă prin socket, câte o știre o dată la 3 secunde (pentru
+serializare/deserializare se pot utiliza funcțiile loads și dumps din
+modulul json din Python, iar în Kotlin se poate utiliza
+kotlinx.serialization
+https://github.com/Kotlin/kotlinx.serialization). De asemenea, se va
+implementa în Kotlin un flux de date direct (direct stream) utilizând
+framework-ul Apache Spark, care să preia datele de la serverul TCP și
+să le prelucreze astfel:
+- se vor filtra acele știri a căror sursă este "Yahoo";
+- se vor filtra acele știri al căror rezumat depășește 500 de caractere;
+- pentru fiecare RDD în parte, se va afișa URL-ul corespunzător
+știrii, data și titlul.
+Există o limitare de 60 de apeluri / minut la fiecare cheie API. Se
+poate crea un cont pe platforma finnhub.io
+(https://finnhub.io/register), sau se poate utiliza următoarea cheie
+(token) API: brmr2kfrh5rcss140jmg -> rezolvat de mine 1
+
+
+
+*****Pornind de la aplicația exemplu din laboratorul 10, să se modifice
+aceasta astfel încât să se introducă un procesor de flux care să
+permită împreună cu alte microservicii (care vor trebui eventual
+create) să se inițieze o discuție privată între câțiva utilizatori
+(deci ne mai trebuie cel puțin un procesor master și unul de
+comunicație replicat pentru fiecare utilizator). Se vor utiliza
+microservicii Python și o comunicare prin RabbitMQ.
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului. Se vor respecta principiile SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.
+
+
+
+*****Pornind de la exemplul 2 din laboratorul 6, să se modifice acesta
+astfel încât  să utilizeze un fișier pe disc pe post de memorie cache
+(se va utiliza numai adăugare și analiza pe bază de marcaje
+temporale).
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului.
+Se va utiliza orchestrarea și respectarea principiilor SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod. -> rezolvat de mine 2
+
+
+
+*****Pornind de la aplicația exemplu cu Okazii (simulat evident) din
+laboratorul 7, să se modifice aceasta astfel încât să se introducă un
+procesor de flux care să realizeze statistici cu privire la numărul de
+mesaje care au fost necesare pentru o licitație până la adjudecare și
+apoi să scrie aceste informații într-un fișier local.
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului. Se vor respecta principiile SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod. -> 21
+
+
+*****Pornind de la aplicația exemplu din laboratorul 10, să se modifice
+aceasta astfel încât să se introducă un procesor de flux care să
+monitorizeze toate operațiile efectuate de celelalte procesoare de
+flux în sensul scrierii într-un jurnal local. Se vor utiliza
+microservicii Python și o comunicare prin RabbitMQ.
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului. Se vor respecta principiile SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod. -> 9
+
+
+*****Pornind de la aplicația exemplu din laboratorul 10, să se modifice
+aceasta astfel încât să permită primirea de evaluari între 1-5 privind
+calitatea serviciului și să salveze numele utilizatorului și evaluarea
+într-un fișier local. Se vor utiliza microservicii Python și o
+comunicare prin RabbitMQ.
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului. Se vor respecta principiile SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.
+
+
+*****Să se creeze în Kotlin un server TCP care să facă o cerere (khttp)
+pentru simbolurile companiilor cu acțiuni (vezi documentația:
+https://finnhub.io/docs/api#stock-symbols) și folosind aceste
+simboluri precum și API-ul de prețuri țintă
+(https://finnhub.io/docs/api#price-target) să trimită datele prin
+socket câte o companie (symbol) o dată la 3 secunde (pentru
+serializare/deserializare se pot utiliza funcțiile loads și dumps din
+modulul json din Python, iar în Kotlin se poate utiliza
+kotlinx.serialization
+https://github.com/Kotlin/kotlinx.serialization). De asemenea, se va
+implementa în Python un flux de date direct (direct stream) utilizând
+framework-ul Apache Spark (PySpark), care să preia datele de la
+serverul TCP și să le prelucreze astfel:
+- se va calcula pentru acțiunile fiecărei companii profitul mediu care
+putea fi făcut în luna curentă, pe baza prețurilor estimate de
+analiști (targetMean și targetLow);
+- se vor filtra rezultatele, păstrandu-le doar pe cele pentru care
+procentul de profit > 40%
+- pentru fiecare RDD în parte, se va afișa compania (symbol) și profitul mediu.
+Există o limitare de 60 de apeluri / minut la fiecare cheie API. Se
+poate crea un cont pe platforma finnhub.io
+(https://finnhub.io/register), sau se poate utiliza următoarea cheie
+(token) API: brl7eb7rh5re1lvco7fg
+
+
+
+
+*****Pornind de la aplicația exemplu din laboratorul 10, să se modifice
+aceasta astfel încât să se introducă un procesor de flux care să
+realizeze statistici cu privire la erorile (posibile surse: cele de
+comunicare, cele de la sistemul de cozi) și tipul acestora care au
+apărut (dacă au apărut) pentru o licitație până la adjudecare și apoi
+să scrie aceste informații într-un fișier local. Se vor utiliza
+microservicii Python și o comunicare prin RabbitMQ.
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului. Se vor respecta principiile SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.
+
+
+
+*****Pornind de la aplicația exemplu pentru ciurul lui Eratostene din
+laboratorul 11, să se modifice aceasta astfel încât să se calculeze
+intersecția între A și B, unde A și B sunt două ADT-uri ce conțin
+fiecare câte 100 de valori inițializate aleator, apoi să se depună
+într-un ADT C rezultatele. -> 4
+
+
+
+*****Să se creeze un server TCP în Python care să facă o cerere la un API
+de știri (de exemplu: https://finnhub.io/docs/api#company-news) pentru
+o anumită companie (ex.: Apple - APPL) și să trimită știrile din
+ultimele 2 săptămâni prin socket câte o știre o dată la 5 secunde și
+utilizând Spark Streaming și Spark RDD, să se creeze un stream direct
+ce va prelucra știrile astfel încât să realizeze o analiză statistică
+de sentimente pe baza a două fișiere text ce conțin cuvinte
+pozitive/negative (încărcate în aplicație ca RDD-uri) - ca la tema
+laboratorului 14. Rezultatul clasificării fiecărei știri
+(pozitiv/negativ/neutru) va fi afișat la consolă. Fișierele de cuvinte
+pot fi descărcate din arhiva cu exemple de la laboratorul 14
+(http://mike.tuiasi.ro/labsd14.zip).
+Există o limitare de 60 de apeluri / minut la fiecare cheie API. Se
+poate crea un cont pe platforma finnhub.io
+(https://finnhub.io/register), sau se poate utiliza următoarea cheie
+(token) API: brmu4j7rh5r90ebn6irg
+
+
+
+Pornind de la exemplul de proiectare și implementare a unei aplicații
+care primește informații meteo (adică utilizând și serviciile de acolo
+eventual cu modificări) să se realizeze următoarele:
+- să se proiecteze și să se implementeze un serviciu care va scrie
+într-un fișier (de orice format la alegere) informațiile recepționate.
+- să se aplice modelul de proiectare de tip filtru și a celui de tip
+dirijor în proiectarea și implementarea unui serviciu care extrage din
+fluxul de date informațiile legate de numelui orașului, temperatura
+minimă și maximă (utilizând serviciul anterior) și le va scrie în
+fișiere cu acest nume.
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului.
+Se va utiliza înlănțuirea și respectarea principiilor SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.
+
+
+
+
+*****Utilizând algoritmul Map-Reduce (implementarea cu stdin/stdout), să se
+calculeze indexul invers pentru un set de URL-uri. Funcția de mapare
+va parsa conținutul fiecărei pagini web (se pot folosi modulele
+requests și BeautifulSoup) și va returna perechi de forma <word, {URL:
+1}>, unde valoarea 1 reprezintă o apariție a cuvântului pe pagina
+respectivă. Funcția de reducere primește toate perechile, sortează
+perechile corespunzătoare aceluiași cuvânt și emite o pereche de forma
+<word, {URL_i: count_word_in_URL_i, ...}>.
+
+
+
+*****Pornind de la aplicația exemplu de chat din laboratorul 8, să se
+modifice aceasta prin utilizarea corutinelor și să se elimine
+procesorul central de mesaje. În locul lui să fie un procesor care să
+mențină o listă de utilizatori activi, iar apoi cei care doresc să
+comunice verifică dacă utilizatorul este activ, îi află adresa și
+portul, după care inițiază o comunicare punctuală.
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului. Se vor respecta principiile SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.
+
+
+
+Pornind de la exemplul de proiectare și implementare a unei aplicații
+care primește informații meteo (adică utilizând și serviciile de acolo
+eventual cu modificări) să se aplice modelul de proiectare de tip API
+și astfel să se încapsuleze aplicația de laborator.
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului.
+Se va utiliza înlănțuirea și respectarea principiilor SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.
+
+
+*****Pornind de la aplicația exemplu de chat din laboratorul 8, să se
+modifice aceasta prin utilizarea corutinelor și introducerea unui
+procesor de flux care permite încărcarea și trimiterea către un alt
+utilizator al unui fișier.
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului. Se vor respecta principiile SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.
+
+
+
+*****Pornind de la aplicația exemplu pentru ciurul lui Eratostene din
+laboratorul 11, să se modifice aceasta astfel încât să se calculeze
+reuniunea între A și B, unde A și B sunt două ADT-uri ce conțin
+fiecare câte 100 de valori inițializate aleator, apoi să se depună
+într-un ADT C rezultatele.
+
+
+*****Pornind de la aplicația exemplu din laboratorul 10, să se modifice
+aceasta astfel încât să se introducă un procesor de flux care să
+realizeze statistici cu privire la numărul de mesaje care au fost
+necesare pentru o licitație până la adjudecare și apoi să scrie aceste
+informații într-un fișier local. Se vor utiliza microservicii Python
+și o comunicare prin RabbitMQ.
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului. Se vor respecta principiile SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.
+
+
+
+
+
+*****Pornind de la aplicația exemplu pentru ciurul lui Eratostene din
+laboratorul 11, să se modifice aceasta astfel încât să se calculeze
+bn=suma(ai*ai), i=1..n. Apoi utilizând această funcție în programul
+principal să se calculeze pornind de la 100 de valori inițializate
+aleator într-un ADT A și apoi să se depună într-un ADT B rezultatele
+pentru n=1..100.  -> 3
+
+
+
+*****Pornind de la exemplul 1 din laboratorul 6 să se modifice acesta
+astfel încât să fie câte un microserviciu separat pentru fiecare
+operație CRUD, iar acestea să fie accesate prin intermediul unui model
+de proiectare de tip poartă API în interiorul altui microserviciu.
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului.
+Se va utiliza orchestrarea și respectarea principiilor SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.  
+
+
+*****Să se creeze în Kotlin un server TCP care să facă o cerere (khttp)
+pentru simbolurile companiilor cu acțiuni (vezi documentația:
+https://finnhub.io/docs/api#stock-symbols) și folosind aceste
+simboluri precum și API-ul de știri despre o companie
+(https://finnhub.io/docs/api#company-news) să trimită știrile din ziua
+precedentă prin socket, câte o știre o dată la 3 secunde (pentru
+serializare/deserializare se pot utiliza funcțiile loads și dumps din
+modulul json din Python, iar în Kotlin se poate utiliza
+kotlinx.serialization
+https://github.com/Kotlin/kotlinx.serialization). De asemenea, se va
+implementa în Python un flux de date direct (direct stream) utilizând
+framework-ul Apache Spark (PySpark), care să preia datele de la
+serverul TCP și să le prelucreze astfel:
+- se vor filtra acele știri care folosesc o imagine PNG;
+- se vor filtra acele știri al căror URL nu depășește 80 de caractere;
+- pentru fiecare RDD în parte, se va afișa URL-ul corespunzător
+știrii, data și titlul.
+Există o limitare de 60 de apeluri / minut la fiecare cheie API. Se
+poate crea un cont pe platforma finnhub.io
+(https://finnhub.io/register), sau se poate utiliza următoarea cheie
+(token) API: brmrfu7rh5rcss140ogg
+
+
+
+*****Pornind de la aplicația exemplu din laboratorul 10, să se modifice
+aceasta astfel încât să se introducă un procesor de flux care să
+realizeze statistici cu privire la erorile (posibile surse: cele de
+comunicare, cele de la sistemul de cozi) și tipul acestora care au
+apărut (dacă au apărut) pentru o licitație până la adjudecare și apoi
+să scrie aceste informații într-un fișier local. Se vor utiliza
+microservicii Python și o comunicare prin RabbitMQ.
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului. Se vor respecta principiile SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.
+
+
+
+*****Pornind de la tema pe acasă care se referea la crearea unei aplicații
+REST pentru gestiunea cheltuielilor unei familii (laboratorul 5), să
+se realizeze următoarele:
+- să se deseneze diagrama de clase;
+- să se implementeze un serviciu (utilizând modelul porții API sau nu)
+care asigură o metodă de cache ce răspunde dacă noua cerere apare în
+primele 30 de minute
+- să se implementeze un serviciu de replicare care multiplică
+serviciile respective și va combina toate cache-urile serviciilor
+replicate într-unul global;
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului.
+Se va utiliza orchestrarea și respectarea principiilor SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.
+
+
+
+*****Pornind de la aplicația exemplu de chat din laboratorul 8, să se
+modifice aceasta prin utilizarea corutinelor și introducerea unui
+procesor de flux care implementează multicast-ul (unul la mai mulți -
+trebuie să existe posibilitatea creării unui subgrup de studenți).
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului. Se vor respecta principiile SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod
+
+
+
+*****Să se creeze un server TCP în Kotlin care să facă o cerere la un API
+de știri (de exemplu: https://finnhub.io/docs/api#company-news) pentru
+o anumită companie (ex.: Apple - APPL) și să trimită știrile din
+ultimele 2 săptămâni prin socket câte o știre o dată la 5 secunde și
+utilizând Spark Streaming și Spark RDD, să se creeze un stream direct
+ce va prelucra știrile astfel încât să realizeze o analiză statistică
+de sentimente pe baza a două fișiere text ce conțin cuvinte
+pozitive/negative (încărcate în aplicație ca RDD-uri) - ca la tema
+laboratorului 14. Rezultatul clasificării fiecărei știri
+(pozitiv/negativ/neutru) va fi afișat la consolă. Fișierele de cuvinte
+pot fi descărcate din arhiva cu exemple de la laboratorul 14
+(http://mike.tuiasi.ro/labsd14.zip).
+Există o limitare de 60 de apeluri / minut la fiecare cheie API. Se
+poate crea un cont pe platforma finnhub.io
+(https://finnhub.io/register), sau se poate utiliza următoarea cheie
+(token) API: brmu7ovrh5r90ebn6jrg
+
+
+
+*****Pornind de la aplicația exemplu de chat din laboratorul 8, să se
+modifice aceasta prin utilizarea corutinelor și introducerea unui
+procesor de flux care monitorizează comunicația și înlocuiește automat
+orice cuvânt aflat într-un dicționar (încărcat dintr-un fișier txt) cu
+xxx (numărul de x este dat de numărul de caractere al cuvântului).
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului. Se vor respecta principiile SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.
+
+
+
+*****Pornind de la aplicația exemplu de chat din laboratorul 8, să se
+modifice aceasta prin introducerea unui procesor de flux care
+implementează un mecanism de tip registru (unde orice procesor de flux
+la pornire se va înregistra și apoi la distrugere se va șterge). Se
+poate utiliza un model de proiectare de tip observator.
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului. Se vor respecta principiile SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.
+
+
+
+
+*****Pornind de la aplicația exemplu de chat din laboratorul 8, să se
+modifice aceasta prin utilizarea corutinelor și să se elimine
+procesorul central de mesaje. În locul lui să fie un procesor care să
+mențină o listă de utilizatori activi, iar apoi cei care doresc să
+comunice verifică dacă utilizatorul este activ, îi află adresa și
+portul, după care inițiază o comunicare punctuală.
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului. Se vor respecta principiile SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.
+
+
+
+*****Pornind de la aplicația exemplu de chat din laboratorul 8, să se
+modifice aceasta prin utilizarea corutinelor și introducerea unui
+procesor de flux care permite încărcarea și trimiterea către un alt
+utilizator al unui fișier.
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului. Se vor respecta principiile SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.
+
+
+
+Pornind de la exemplul de proiectare și implementare a unei aplicații
+care primește informații meteo (adică utilizând și serviciile de acolo
+eventual cu modificări) să se realizeze următoarele:
+- un serviciu care citește dintr-un fișier (în ce format dorim) o
+listă de orașe;
+- să se aplice modelul de proiectare de tip filtru în proiectarea și
+implementarea unui serviciu care extrage din fluxul de date informații
+pe baza numelui orașului (utilizând serviciul anterior)
+- să se proiecteze și să se implementeze un serviciu care utilizând
+serviciul de filtrare va aplica o regresie liniara peste datele
+rezultate si apoi se va afisa unghiul dreptei rezultate.
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului.
+Se va utiliza înlănțuirea și respectarea principiilor SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.
+
+
+
+
+*****Pornind de la aplicația exemplu cu Okazii (simulat evident) din
+laboratorul 7, să se modifice aceasta astfel încât să permită primirea
+de evaluari între 1-5 privind calitatea serviciului și să salveze
+numele utilizatorului și evaluarea într-un fișier local.
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului. Se vor respecta principiile SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.
+
+
+
+
+
+*****Pornind de la aplicația exemplu de chat din laboratorul 8, să se
+modifice aceasta prin utilizarea corutinelor și introducerea unui
+procesor de flux care implementează multicast-ul (unul la mai mulți -
+trebuie să existe posibilitatea creării unui subgrup de studenți).
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului. Se vor respecta principiile SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.
+
+
+
+
+
+*****Pornind de la aplicația exemplu de chat din laboratorul 8, să se
+modifice aceasta astfel încât să se introducă un procesor de flux care
+să filtreze toată comunicația după niște reguli (de exemplu: se
+acceptă toate care vin din gama de porturi XX-YY), iar rezultatul se
+salvează într-un fișier local.
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului. Se vor respecta principiile SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.

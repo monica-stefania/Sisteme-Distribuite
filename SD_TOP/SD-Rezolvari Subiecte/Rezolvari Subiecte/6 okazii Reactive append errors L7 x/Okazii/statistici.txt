@@ -1,0 +1,2 @@
+java.net.SocketException: Connection reset
+java.lang.Exception: AuctioneerMicroservice s-a deconectat.

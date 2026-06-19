@@ -1,0 +1,11 @@
+Pornind de la exemplul de proiectare și implementare a unei aplicații
+care primește informații meteo (adică utilizând și serviciile de acolo
+eventual cu modificări) să se aplice modelul de proiectare de tip API
+și astfel să se încapsuleze aplicația de laborator.
+Dacă se consideră necesar se mai pot crea oricâte servicii se dorește
+conform gândirii studentului.
+
+Se va utiliza înlănțuirea și respectarea principiilor SOLID pentru
+microservicii. La prezentare se va arăta diagrama de clase și se va
+explica aceasta împreună cu gradul de respectare a principiilor. Apoi
+va urma discuția pe cod.

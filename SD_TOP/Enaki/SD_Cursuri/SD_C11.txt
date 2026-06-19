@@ -1,0 +1,27 @@
+Cele 4 planuri ale unei arhitecturi bazate pe fluxuri de evenimente(in paranteza exemplu pentru o plata)
+	1) business function(procesarea platii)
+	2) instrumentation plane(cati bani sunt transferati, cat de repede sunt procesati)
+	3) control plane(pattern-uri de start, stop, pauza, coordonare si autoscale)
+	4) operational plane(erori, urmarire si tratare, logging)
+1)Business function: functionalitatea de baza care e construita. De obicei se ocupa cu procesarea datelor.
+2)Instrumentation plane: captureaza metrici care dovedesc ca functia de business se comporta acceptabil. Pot fi folosite sa emiti alerte sau sa ajuti la automatizarea infrastructurii.
+3)Control plane: cand ai nevoie sa opresti tot sistemul din procesare ca sa bagi un upgrade, si nu vrei sa se opreasca toate procesarile in curs
+4)Operational plane: contine partea de automatizare, logica aplicatiei, jurnale de erori, jurnale de securitate, informatii pentru restaurare, cozile 
+	de mesaje pierdute
+
+
+
+Serverless computing e un model de executie in cloud in care un provider ruleaza serverul si manageriaza dinamic alocarea resurselor masinii. Pretul e bazat pe cate resurse consuma
+	aplicatia, fata de un pret stabilit dinainte.
+If your PaaS can efficiently start instances in 20ms that run for half a second, then call it serverless"
+Avantaje:
+	- incarcari mici
+	- decuplare maxima
+	- scalabilitate
+	- eficiente economic
+Limitari:
+	- timp
+	- memorie
+	- tehnologie proprietara
+	- solutii publice
+	- securitate

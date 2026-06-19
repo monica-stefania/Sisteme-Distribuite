@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b9b32538-c3a4-4260-a3a6-00529b9dfaec" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Kotlin File" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1WCZXd3MTcIUOr6OMonxeCBXTAA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../13/kotlin" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/target" />
+    </key>
+    <key name="CreateKotlinClassDialog.RecentsKey">
+      <recent name="com.sd.laborator.pojo" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b9b32538-c3a4-4260-a3a6-00529b9dfaec" name="Default Changelist" comment="" />
+      <created>1578655577222</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578655577222</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="735" y="272" width="440" height="576" key="#com.intellij.ide.util.MemberChooser" timestamp="1596391657074">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="735" y="272" width="440" height="576" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1596391657074" />
+    <state x="743" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1597095518952">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="743" y="311" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1597095518952" />
+    <state width="914" height="275" key="GridCell.Tab.0.bottom" timestamp="1597095520236">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="914" height="275" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1597095520236" />
+    <state width="914" height="275" key="GridCell.Tab.0.center" timestamp="1597095520234">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="914" height="275" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1597095520234" />
+    <state width="914" height="275" key="GridCell.Tab.0.left" timestamp="1597095520233">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="914" height="275" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1597095520233" />
+    <state width="914" height="275" key="GridCell.Tab.0.right" timestamp="1597095520235">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="914" height="275" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1597095520235" />
+  </component>
+</project>

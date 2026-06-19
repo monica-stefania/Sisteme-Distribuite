@@ -1,0 +1,10 @@
+Initializare MessageProcessor - 2020-08-15
+Se consuma bid-urile primite de la Auctioneer - 2020-08-15
+Initializare BiddingProcessor - 2020-08-15
+Consumare bid-uri procesate - 2020-08-15
+Eliminare duplicate - 2020-08-15
+Sortare timestamp - 2020-08-15
+Terminare procesare si trimitere la BiddingProcessor - 2020-08-15
+Populare dictionar cu identitate si suma - 2020-08-15
+Populare dictionar cu identitate si suma - 2020-08-15
+Decidere castigatori - 2020-08-15

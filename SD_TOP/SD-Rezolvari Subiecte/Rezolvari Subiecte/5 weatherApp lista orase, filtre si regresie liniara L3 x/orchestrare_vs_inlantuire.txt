@@ -1,0 +1,3 @@
+Orchestration in this sense is about aligning the business request with the applications, data, and infrastructure.
+
+Service chaining, in an information technology (IT) context, is the addition of software-defined networking (SDN) capabilities in a specific sequence

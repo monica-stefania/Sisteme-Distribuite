@@ -1,0 +1,15 @@
+#!usr/bin/env bash
+
+fuser -k 1520/tcp &
+fuser -k 1521/tcp &
+fuser -k 1522/tcp &
+
+python3 ./TeacherStudentGUI/src/TeacherStudentGUI.py 1520 &
+python3 ./TeacherStudentGUI/src/TeacherStudentGUI.py 1521 &
+python3 ./TeacherStudentGUI/src/TeacherStudentGUI.py 1522 &
+
+java -jar ./TeacherMicroservice/target/TeacherMicroservice-1.0-SNAPSHOT-jar-with-dependencies.jar 1520 &
+java -jar ./TeacherMicroservice/target/TeacherMicroservice-1.0-SNAPSHOT-jar-with-dependencies.jar 1521 &
+java -jar ./TeacherMicroservice/target/TeacherMicroservice-1.0-SNAPSHOT-jar-with-dependencies.jar 1522 &
+
+
