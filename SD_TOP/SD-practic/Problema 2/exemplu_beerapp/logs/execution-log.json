@@ -1,0 +1,9 @@
+[ {
+  "operation" : "TEST",
+  "details" : "test",
+  "timestamp" : "2026-06-17T19:50:15.535"
+}, {
+  "operation" : "CREATE",
+  "details" : "Added beer: berrre",
+  "timestamp" : "2026-06-17T19:50:46.284"
+} ]

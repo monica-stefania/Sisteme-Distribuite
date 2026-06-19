@@ -1,0 +1,34 @@
+services:
+  message-manager:
+    build: ./MessageManagerMicroservice
+    container_name: message-manager
+    ports:
+      - "1500:1500"
+
+  student-1:
+    build: ./StudentMicroservice
+    container_name: student-1
+    environment:
+      MESSAGE_MANAGER_HOST: message-manager
+      SERVICE_ID: student_1
+      STUDENT_PORT: 1700
+    volumes:
+      - ./data:/data
+    depends_on:
+      - message-manager
+    ports:
+      - "1700:1700"
+
+  teacher-1:
+    build: ./TeacherMicroservice
+    container_name: teacher-1
+    environment:
+      MESSAGE_MANAGER_HOST: message-manager
+      SERVICE_ID: teacher_1
+      TEACHER_PORT: 1600
+    volumes:
+      - ./data:/data
+    depends_on:
+      - message-manager
+    ports:
+      - "1600:1600"

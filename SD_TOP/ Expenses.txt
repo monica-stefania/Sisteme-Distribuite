@@ -1,0 +1,572 @@
+//MEMBER SERVICE server.port=8081
+
+package com.sd.memberservice
+
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
+
+@SpringBootApplication
+class MemberServiceApplication
+
+fun main(args: Array<String>) {
+    runApplication<MemberServiceApplication>(*args)
+}
+
+---------------
+package com.sd.memberservice.pojo
+
+data class Member(
+    var id: Int = 0,
+    var username: String = "",
+    var password: String = "",
+    var fullName: String = ""
+)
+
+---------------------
+
+package com.sd.memberservice.interfaces
+
+import com.sd.memberservice.pojo.Member
+
+interface IMemberService {
+    fun createMember(member: Member)
+    fun getMember(id: Int): Member?
+    fun getAllMembers(): List<Member>
+    fun updateMember(id: Int, member: Member)
+    fun deleteMember(id: Int)
+    fun login(username: String, password: String): Member?
+}
+
+---------------
+package com.sd.memberservice.services
+
+import com.sd.memberservice.interfaces.IMemberService
+import com.sd.memberservice.pojo.Member
+import org.springframework.stereotype.Service
+import java.util.concurrent.ConcurrentHashMap
+
+@Service
+class MemberService : IMemberService {
+
+    private val members = ConcurrentHashMap<Int, Member>()
+
+    init {
+        members[1] = Member(1, "mama", "1234", "Maria Popescu")
+        members[2] = Member(2, "tata", "1234", "Ion Popescu")
+        members[3] = Member(3, "copil", "1234", "Andrei Popescu")
+    }
+
+    override fun createMember(member: Member) {
+        members[member.id] = member
+    }
+
+    override fun getMember(id: Int): Member? {
+        return members[id]
+    }
+
+    override fun getAllMembers(): List<Member> {
+        return members.values.toList()
+    }
+
+    override fun updateMember(id: Int, member: Member) {
+        members[id] = member
+    }
+
+    override fun deleteMember(id: Int) {
+        members.remove(id)
+    }
+
+    override fun login(username: String, password: String): Member? {
+        return members.values.find {
+            it.username == username && it.password == password
+        }
+    }
+}
+
+----------------------
+package com.sd.memberservice.controllers
+
+import com.sd.memberservice.interfaces.IMemberService
+import com.sd.memberservice.pojo.Member
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.*
+
+@RestController
+class MemberController {
+
+    @Autowired
+    private lateinit var memberService: IMemberService
+
+    @PostMapping("/members")
+    fun createMember(@RequestBody member: Member): ResponseEntity<Unit> {
+        memberService.createMember(member)
+        return ResponseEntity(Unit, HttpStatus.CREATED)
+    }
+
+    @GetMapping("/members/{id}")
+    fun getMember(@PathVariable id: Int): ResponseEntity<Member?> {
+        val member = memberService.getMember(id)
+
+        return if (member != null) {
+            ResponseEntity(member, HttpStatus.OK)
+        } else {
+            ResponseEntity(null, HttpStatus.NOT_FOUND)
+        }
+    }
+
+    @GetMapping("/members")
+    fun getAllMembers(): ResponseEntity<List<Member>> {
+        val members = memberService.getAllMembers()
+
+        return if (members.isEmpty()) {
+            ResponseEntity(members, HttpStatus.NO_CONTENT)
+        } else {
+            ResponseEntity(members, HttpStatus.OK)
+        }
+    }
+
+    @PutMapping("/members/{id}")
+    fun updateMember(
+        @PathVariable id: Int,
+        @RequestBody member: Member
+    ): ResponseEntity<Unit> {
+        return if (memberService.getMember(id) != null) {
+            memberService.updateMember(id, member)
+            ResponseEntity(Unit, HttpStatus.ACCEPTED)
+        } else {
+            ResponseEntity(Unit, HttpStatus.NOT_FOUND)
+        }
+    }
+
+    @DeleteMapping("/members/{id}")
+    fun deleteMember(@PathVariable id: Int): ResponseEntity<Unit> {
+        return if (memberService.getMember(id) != null) {
+            memberService.deleteMember(id)
+            ResponseEntity(Unit, HttpStatus.OK)
+        } else {
+            ResponseEntity(Unit, HttpStatus.NOT_FOUND)
+        }
+    }
+
+    @PostMapping("/login")
+    fun login(@RequestBody member: Member): ResponseEntity<Member?> {
+        val loggedMember = memberService.login(member.username, member.password)
+
+        return if (loggedMember != null) {
+            ResponseEntity(loggedMember, HttpStatus.OK)
+        } else {
+            ResponseEntity(null, HttpStatus.UNAUTHORIZED)
+        }
+    }
+}
+
+-------------
+//EXPENSES SERVICE - server.port=8082
+
+package com.sd.expenseservice
+
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
+
+@SpringBootApplication
+class ExpenseServiceApplication
+
+fun main(args: Array<String>) {
+    runApplication<ExpenseServiceApplication>(*args)
+}
+
+----------------
+package com.sd.expenseservice.pojo
+
+enum class ExpenseCategory {
+    INTRETINERE,
+    MANCARE,
+    DISTRACTIE,
+    SCOALA,
+    PERSONALE
+}
+
+
+-----------------
+package com.sd.expenseservice.pojo
+
+data class Expense(
+    var id: Int = 0,
+    var memberId: Int = 0,
+    var category: ExpenseCategory = ExpenseCategory.PERSONALE,
+    var description: String = "",
+    var amount: Double = 0.0
+)
+
+-------------------
+package com.sd.expenseservice.interfaces
+
+import com.sd.expenseservice.pojo.Expense
+import com.sd.expenseservice.pojo.ExpenseCategory
+
+interface IExpenseService {
+    fun createExpense(expense: Expense)
+    fun getExpense(id: Int): Expense?
+    fun getAllExpenses(): List<Expense>
+    fun updateExpense(id: Int, expense: Expense)
+    fun deleteExpense(id: Int)
+    fun searchExpenses(memberId: Int?, category: ExpenseCategory?): List<Expense>
+}
+
+
+-----------------
+package com.sd.expenseservice.services
+
+import com.sd.expenseservice.interfaces.IExpenseService
+import com.sd.expenseservice.pojo.Expense
+import com.sd.expenseservice.pojo.ExpenseCategory
+import org.springframework.stereotype.Service
+import java.util.concurrent.ConcurrentHashMap
+
+@Service
+class ExpenseService : IExpenseService {
+
+    private val expenses = ConcurrentHashMap<Int, Expense>()
+
+    init {
+        expenses[1] = Expense(
+            1,
+            1,
+            ExpenseCategory.MANCARE,
+            "Cumparaturi supermarket",
+            250.5
+        )
+
+        expenses[2] = Expense(
+            2,
+            2,
+            ExpenseCategory.INTRETINERE,
+            "Factura intretinere",
+            430.0
+        )
+
+        expenses[3] = Expense(
+            3,
+            3,
+            ExpenseCategory.SCOALA,
+            "Caiete si rechizite",
+            120.0
+        )
+    }
+
+    override fun createExpense(expense: Expense) {
+        expenses[expense.id] = expense
+    }
+
+    override fun getExpense(id: Int): Expense? {
+        return expenses[id]
+    }
+
+    override fun getAllExpenses(): List<Expense> {
+        return expenses.values.toList()
+    }
+
+    override fun updateExpense(id: Int, expense: Expense) {
+        expenses[id] = expense
+    }
+
+    override fun deleteExpense(id: Int) {
+        expenses.remove(id)
+    }
+
+    override fun searchExpenses(
+        memberId: Int?,
+        category: ExpenseCategory?
+    ): List<Expense> {
+        return expenses.values.filter {
+            (memberId == null || it.memberId == memberId) &&
+            (category == null || it.category == category)
+        }.toList()
+    }
+}
+
+
+-----------------
+package com.sd.expenseservice.controllers
+
+import com.sd.expenseservice.interfaces.IExpenseService
+import com.sd.expenseservice.pojo.Expense
+import com.sd.expenseservice.pojo.ExpenseCategory
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.*
+
+@RestController
+class ExpenseController {
+
+    @Autowired
+    private lateinit var expenseService: IExpenseService
+
+    @PostMapping("/expenses")
+    fun createExpense(@RequestBody expense: Expense): ResponseEntity<Unit> {
+        expenseService.createExpense(expense)
+        return ResponseEntity(Unit, HttpStatus.CREATED)
+    }
+
+    @GetMapping("/expenses/{id}")
+    fun getExpense(@PathVariable id: Int): ResponseEntity<Expense?> {
+        val expense = expenseService.getExpense(id)
+
+        return if (expense != null) {
+            ResponseEntity(expense, HttpStatus.OK)
+        } else {
+            ResponseEntity(null, HttpStatus.NOT_FOUND)
+        }
+    }
+
+    @GetMapping("/expenses")
+    fun searchExpenses(
+        @RequestParam(required = false) memberId: Int?,
+        @RequestParam(required = false) category: ExpenseCategory?
+    ): ResponseEntity<List<Expense>> {
+        val expenses = expenseService.searchExpenses(memberId, category)
+
+        return if (expenses.isEmpty()) {
+            ResponseEntity(expenses, HttpStatus.NO_CONTENT)
+        } else {
+            ResponseEntity(expenses, HttpStatus.OK)
+        }
+    }
+
+    @PutMapping("/expenses/{id}")
+    fun updateExpense(
+        @PathVariable id: Int,
+        @RequestBody expense: Expense
+    ): ResponseEntity<Unit> {
+        return if (expenseService.getExpense(id) != null) {
+            expenseService.updateExpense(id, expense)
+            ResponseEntity(Unit, HttpStatus.ACCEPTED)
+        } else {
+            ResponseEntity(Unit, HttpStatus.NOT_FOUND)
+        }
+    }
+
+    @DeleteMapping("/expenses/{id}")
+    fun deleteExpense(@PathVariable id: Int): ResponseEntity<Unit> {
+        return if (expenseService.getExpense(id) != null) {
+            expenseService.deleteExpense(id)
+            ResponseEntity(Unit, HttpStatus.OK)
+        } else {
+            ResponseEntity(Unit, HttpStatus.NOT_FOUND)
+        }
+    }
+}
+
+-----------------------------
+
+
+////REPORT SERVICE -> server.port=8083
+
+expense.service.url=http://localhost:8082/expenses
+
+
+package com.sd.reportservice
+
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
+import org.springframework.context.annotation.Bean
+import org.springframework.web.client.RestTemplate
+
+@SpringBootApplication
+class ReportServiceApplication {
+    @Bean
+    fun restTemplate(): RestTemplate {
+        return RestTemplate()
+    }
+}
+
+fun main(args: Array<String>) {
+    runApplication<ReportServiceApplication>(*args)
+}
+
+----------------
+package com.sd.reportservice.pojo
+
+enum class ExpenseCategory {
+    INTRETINERE,
+    MANCARE,
+    DISTRACTIE,
+    SCOALA,
+    PERSONALE
+}
+
+----------------
+package com.sd.reportservice.pojo
+
+data class Expense(
+    var id: Int = 0,
+    var memberId: Int = 0,
+    var category: ExpenseCategory = ExpenseCategory.PERSONALE,
+    var description: String = "",
+    var amount: Double = 0.0
+)
+---------------------
+package com.sd.reportservice.services
+
+import com.sd.reportservice.pojo.Expense
+import com.sd.reportservice.pojo.ExpenseCategory
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Value
+import org.springframework.stereotype.Service
+import org.springframework.web.client.RestTemplate
+
+@Service
+class ReportService {
+
+    @Autowired
+    private lateinit var restTemplate: RestTemplate
+
+    @Value("\${expense.service.url}")
+    private lateinit var expenseServiceUrl: String
+
+    fun getAllExpenses(): List<Expense> {
+        val response = restTemplate.getForObject(
+            expenseServiceUrl,
+            Array<Expense>::class.java
+        )
+
+        return response?.toList() ?: emptyList()
+    }
+
+    fun getTotalFamilyExpenses(): Double {
+        return getAllExpenses().sumOf { it.amount }
+    }
+
+    fun getTotalForMember(memberId: Int): Double {
+        return getAllExpenses()
+            .filter { it.memberId == memberId }
+            .sumOf { it.amount }
+    }
+
+    fun getTotalForCategory(category: ExpenseCategory): Double {
+        return getAllExpenses()
+            .filter { it.category == category }
+            .sumOf { it.amount }
+    }
+}
+--------------
+
+package com.sd.reportservice.controllers
+
+import com.sd.reportservice.pojo.ExpenseCategory
+import com.sd.reportservice.services.ReportService
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.*
+
+@RestController
+class ReportController {
+
+    @Autowired
+    private lateinit var reportService: ReportService
+
+    @GetMapping("/reports/total")
+    fun getTotalFamilyExpenses(): ResponseEntity<Double> {
+        val total = reportService.getTotalFamilyExpenses()
+        return ResponseEntity(total, HttpStatus.OK)
+    }
+
+    @GetMapping("/reports/member/{memberId}")
+    fun getTotalForMember(
+        @PathVariable memberId: Int
+    ): ResponseEntity<Double> {
+        val total = reportService.getTotalForMember(memberId)
+        return ResponseEntity(total, HttpStatus.OK)
+    }
+
+    @GetMapping("/reports/category/{category}")
+    fun getTotalForCategory(
+        @PathVariable category: ExpenseCategory
+    ): ResponseEntity<Double> {
+        val total = reportService.getTotalForCategory(category)
+        return ResponseEntity(total, HttpStatus.OK)
+    }
+}
+
+urma pom e pentru toate <project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.sd</groupId>
+    <artifactId>member-service</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>member-service</name>
+
+    <properties>
+        <java.version>17</java.version>
+        <kotlin.version>1.9.25</kotlin.version>
+        <spring.boot.version>3.3.4</spring.boot.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-kotlin</artifactId>
+            <version>2.17.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-reflect</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
+
+        <plugins>
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+                <version>${kotlin.version}</version>
+
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <jvmTarget>17</jvmTarget>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+
+

@@ -1,0 +1,10 @@
+bin/kafka-server-start.sh config/server.properties 
+
+-------------------------------
+
+bin/kafka-topics.sh --create --topic state-00 --bootstrap-server localhost:9092
+bin/kafka-topics.sh --create --topic state-01 --bootstrap-server localhost:9092
+bin/kafka-topics.sh --create --topic state-10 --bootstrap-server localhost:9092
+bin/kafka-topics.sh --create --topic state-11 --bootstrap-server localhost:9092
+
+

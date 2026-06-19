@@ -1,0 +1,61 @@
+version: "3.8"
+
+services:
+  logging-service:
+    build: ./logging-service
+    container_name: logging-service
+    ports:
+      - "8085:8085"
+    volumes:
+      - ./logs:/logs
+
+  create-service:
+    build: ./create-service
+    container_name: create-service
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./database:/database
+    depends_on:
+      - logging-service
+
+  read-service:
+    build: ./read-service
+    container_name: read-service
+    ports:
+      - "8082:8082"
+    volumes:
+      - ./database:/database
+    depends_on:
+      - logging-service
+
+  update-service:
+    build: ./update-service
+    container_name: update-service
+    ports:
+      - "8083:8083"
+    volumes:
+      - ./database:/database
+    depends_on:
+      - logging-service
+
+  delete-service:
+    build: ./delete-service
+    container_name: delete-service
+    ports:
+      - "8084:8084"
+    volumes:
+      - ./database:/database
+    depends_on:
+      - logging-service
+
+  gateway-service:
+    build: ./gateway-service
+    container_name: gateway-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - create-service
+      - read-service
+      - update-service
+      - delete-service

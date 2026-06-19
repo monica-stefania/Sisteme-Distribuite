@@ -1,0 +1,7 @@
+Student_1:Unde se da al 3-lea razboi mondial?:Pe Facebook
+Student_1:Tineti post?:Jean Calvin si trixitus inversus
+Student_2:Care e sensul vietii?:67
+Student_2:Cat e ceasul?Cat ti-e nasul
+Student_2:De ce a trecut gaina strada?:Ca sa faca un ou
+Student_3:De unde vin copiii?:De la barza
+Student_3:Cati neuroni are un om?:Multi

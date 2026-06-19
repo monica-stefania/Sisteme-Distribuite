@@ -1,0 +1,15 @@
+Pornind de la exemplul 1 din laboratorul 6 sa se modifice acesta astfel incat sa fie cate un microserviciu separat pentru fiecare operatie CRUD, iar fiecare dintre ele sa utilizeze un microserviciu de jurnalizare a operatiilor (este recomandat sa fie acelasi). Toate datele vor fi scrise in acelasi fisier JSON de jurnalizare a executiei. Microserviciile conform definitiei unui microserviciu vor fi fiecare in masina lor virtuala. Daca se considera necesar se mai pot crea oricate servicii se doreste conform gandirii studentului. Se va utiliza orchestrarea si respectarea principiilor SOLID pentru microservicii. La prezentare se va arata diagrama de servicii si apoi cea de clase asociate implementarii fiecarui serviciu si se va explica aceasta impreuna cu gradul de respectare a principiilor SOLID pentru microservicii dar si SOLID pentru clase in cazul in care implementarea unui serviciu este mai complicata. Apoi va urma discutia pe cod.
+
+
+
+Mentiuni:
+Se foloseste Spring deci microserviciile vor fi clase si nu vor comunica utilizand reteaua sau alte framework-uri ci prin simple apeluri de metode.
+
+Am facut o simpla refactorizare: am segregat interfata IBeerServiceAPI in mai multe interfete, fiecare cu cate 1 metoda. Apoi am creeat cate un serviciu (fiecare adnotat cu @Service) care sa implementeze una dintre metodele noilor interfete. Cum noile servicii depindeau de un BeerRepository, am facut o clasa abstracta numita AbstractBeerCrudService care contine un BeerRepository (si acel Regex, cu toate ca nu toate serviciile il folosesc, mai corect ar fi fost sa mai existe o clasa abstracta derivata din AbstractBeerCrudService care sa contina Regexul...)
+si din care sunt derivate toate noile servicii. Apoi interfata IBeerServiceAPI extinde noile interfete.
+
+S-a creeat o clasa adnotata cu @Configuration care creeaza serviciile care au si logging folosing metode adnotate cu @Bean (pentru a le desemna ca metode ce creeaza bean-uri) si ci @Primary (pentru a elimina ambiguitatile creeate de multitudinea de optiuni de creare a bean-urilor: serviciile CRUD initiale, API-ul, functiile adnotate cu @Bean). Aceasta clasa mai are un camp fileName care este adnotat cu @Value("\${logging.crudLogs}"), astfel Spring injecteaza in camp valoarea proprietatii logging.crudLogs dim application.properties.
+
+Numele filei de logging se obtine din fisierul "application.properties"
+
+Nu stiu ce intelege el prin "fiecare microserviciu in masina lui virtuala"... De parca nu ar avea control complet Spring... Sau daca el crede ca fac cate un proiect cu SpringBoot pentru fiecare operatie CRUD, le impachetez in JAR-uri si le execut in containere Docker pe care le apelez cu un controller (dintr-un container Docker/de pe Linux, executat cu IntelliJ de exemplu) atunci chiar e nebun...
